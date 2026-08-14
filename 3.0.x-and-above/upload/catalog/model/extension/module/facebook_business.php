@@ -396,6 +396,46 @@ class ModelExtensionModuleFacebookBusiness extends Model {
                     }
                 } 
 
+                $facebook_pixel_pii = array();
+
+                if (!empty($order_info)) {
+                    if (!empty($order_info['email'])) {
+                        $facebook_pixel_pii['em'] = $order_info['email'];
+                    }
+
+                    if (!empty($order_info['firstname'])) {
+                        $facebook_pixel_pii['fn'] = $order_info['firstname'];
+                    }
+
+                    if (!empty($order_info['lastname'])) {
+                        $facebook_pixel_pii['ln'] = $order_info['lastname'];
+                    }
+
+                    if (!empty($order_info['telephone'])) {
+                        $facebook_pixel_pii['ph'] = $order_info['telephone'];
+                    }
+
+                    if (!empty($order_info['payment_city'])) {
+                        $facebook_pixel_pii['ct'] = $order_info['payment_city'];
+                    }
+
+                    if (!empty($order_info['payment_zone'])) {
+                        $facebook_pixel_pii['st'] = $order_info['payment_zone'];
+                    }
+
+                    if (!empty($order_info['payment_postcode'])) {
+                        $facebook_pixel_pii['zp'] = $order_info['payment_postcode'];
+                    }
+
+                    if (!empty($order_info['payment_iso_code_2'])) {
+                        $facebook_pixel_pii['country'] = $order_info['payment_iso_code_2'];
+                    }
+
+                    if (!empty($order_info['customer_id'])) {
+                        $facebook_pixel_pii['external_id'] = (string)$order_info['customer_id'];
+                    }
+                }
+
                 $facebook_pixel_event_params = array(
                     'event_name'    => $event_name,
                     'content_ids'   => $content_ids,
@@ -890,7 +930,11 @@ class ModelExtensionModuleFacebookBusiness extends Model {
                 break;
         }
     
-        $this->trackPixel($facebook_pixel_event_params, $event_name, $event_id);
+        if (isset($facebook_pixel_event_params['value'])) {
+            $facebook_pixel_event_params['value'] = (float)$facebook_pixel_event_params['value'];
+        }
+
+        $this->trackPixel($facebook_pixel_event_params, $event_name, $event_id, isset($facebook_pixel_pii) ? $facebook_pixel_pii : null);
 
         if ($facebook_pixel_event_params) {
             return addslashes(json_encode($facebook_pixel_event_params));
@@ -926,6 +970,32 @@ class ModelExtensionModuleFacebookBusiness extends Model {
 
     public function formatString($string) {
         return trim(strip_tags(html_entity_decode(html_entity_decode($string), ENT_QUOTES | ENT_COMPAT, 'UTF-8')));
+    }
+
+    private function isBotUserAgent() {
+        $user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
+
+        if (empty($user_agent)) {
+            return false;
+        }
+
+        $bot_patterns = array(
+            'bot', 'crawl', 'spider', 'slurp', 'bingpreview',
+            'facebookexternalhit', 'whatsapp', 'embed.ly', 'quora link preview',
+            'pinterest', 'twitterbot', 'telegrambot', 'vkshare',
+            'ahrefs', 'semrush', 'mj12', 'dotbot', 'petalbot', 'bytebot',
+            'gptbot', 'claudebot', 'ccbot', 'chatgpt', 'perplexitybot', 'aibot'
+        );
+
+        $ua = strtolower($user_agent);
+
+        foreach ($bot_patterns as $pattern) {
+            if (strpos($ua, $pattern) !== false) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private function getFilterData($page_filter_data = array()) {
@@ -969,7 +1039,7 @@ class ModelExtensionModuleFacebookBusiness extends Model {
         return $filter_data;
     }
 
-    public function trackPixel($server_event_params, $event_name, $event_id) {
+    public function trackPixel($server_event_params, $event_name, $event_id, $extra_pii = null) {
         if (($this->config->get('facebook_business_cookie_bar_status') && (empty($_COOKIE['fb_cookieconsent_status']) || $_COOKIE['fb_cookieconsent_status'] !== 'deny'))
           || $server_event_params == null) {
             return;
@@ -979,8 +1049,26 @@ class ModelExtensionModuleFacebookBusiness extends Model {
             return;
         }
 
+        if ($this->isBotUserAgent()) {
+            return;
+        }
+
         if ($this->config->get('facebook_use_s2s')) {
             $user_pii_data = $this->getPii();
+
+            if (is_array($extra_pii) && $extra_pii) {
+                $user_pii_data = array_merge($user_pii_data, $extra_pii);
+            }
+
+            if (empty($_COOKIE['_fbp'])) {
+                $_COOKIE['_fbp'] = 'fb.1.' . time() . '.' . random_int(100000000, 999999999);
+                setcookie('_fbp', $_COOKIE['_fbp'], time() + 15552000, '/', '', !empty($_SERVER['HTTPS']), true);
+            }
+
+            if (empty($_COOKIE['_fbc']) && !empty($this->request->get['fbclid'])) {
+                $_COOKIE['_fbc'] = 'fb.1.' . time() . '.' . $this->request->get['fbclid'];
+                setcookie('_fbc', $_COOKIE['_fbc'], time() + 15552000, '/', '', !empty($_SERVER['HTTPS']), true);
+            }
 
             $client_ips = explode(',', Util::getIpAddress());
             $client_ip = $client_ips[0];
@@ -1020,6 +1108,22 @@ class ModelExtensionModuleFacebookBusiness extends Model {
                     if (!empty($user_pii_data['external_id'])) {
                         $user_data->setExternalId($user_pii_data['external_id']);
                     }
+
+                    if (!empty($user_pii_data['ct'])) {
+                        $user_data->setCity($user_pii_data['ct']);
+                    }
+
+                    if (!empty($user_pii_data['st'])) {
+                        $user_data->setState($user_pii_data['st']);
+                    }
+
+                    if (!empty($user_pii_data['zp'])) {
+                        $user_data->setZipCode($user_pii_data['zp']);
+                    }
+
+                    if (!empty($user_pii_data['country'])) {
+                        $user_data->setCountryCode($user_pii_data['country']);
+                    }
                 }
 
                 $event = (new Event())
@@ -1040,8 +1144,8 @@ class ModelExtensionModuleFacebookBusiness extends Model {
                     $custom_data->setCurrency($server_event_params['currency']);
                 }
           
-                if (!empty($server_event_params['value'])) {
-                    $custom_data->setValue($server_event_params['value']);
+                if (isset($server_event_params['value']) && (float)$server_event_params['value'] > 0) {
+                    $custom_data->setValue((float)round((float)$server_event_params['value'], 2));
                 }
           
                 if (!empty($server_event_params['content_ids'])) {
@@ -1056,23 +1160,28 @@ class ModelExtensionModuleFacebookBusiness extends Model {
                 return false;
             }
 
-            $api = Api::init(null, null, $this->config->get('facebook_system_user_access_token'), false);
+            try {
+                $api = Api::init(null, null, $this->config->get('facebook_system_user_access_token'), false);
 
-            $agent_data = json_decode($this->getAgentParameters(), true);
-            $agent = $agent_data['agent'];
+                $agent_data = json_decode($this->getAgentParameters(), true);
+                $agent = $agent_data['agent'];
 
-            $async_request = (new EventRequestAsync($this->config->get('facebook_pixel_id')))
-                  ->setEvents(array($event))
-                  ->setPartnerAgent($agent);
+                $async_request = (new EventRequestAsync($this->config->get('facebook_pixel_id')))
+                      ->setEvents(array($event))
+                      ->setPartnerAgent($agent);
 
-            return $async_request->execute()
-                ->then(
-                    null,
-                    function(\Exception $ex) {
-                        // For debugging
-                        // $this->log->write('Facebook Business Extension :: Fail to send server event! Error Message: ' . $ex->getMessage());
-                    }
-                );
+                return $async_request->execute()
+                    ->then(
+                        null,
+                        function(\Exception $ex) {
+                            // For debugging
+                            // $this->log->write('Facebook Business Extension :: Fail to send server event! Error Message: ' . $ex->getMessage());
+                        }
+                    );
+            } catch (Exception $ex) {
+                $this->log->write('Facebook Business Extension :: Fail to send server event! Error Message: ' . $ex->getMessage());
+                return false;
+            }
         }
     }
 
