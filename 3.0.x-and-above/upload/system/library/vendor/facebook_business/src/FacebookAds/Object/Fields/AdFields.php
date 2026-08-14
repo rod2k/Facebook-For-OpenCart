@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Fields;
@@ -38,7 +23,10 @@ use FacebookAds\Enum\AbstractEnum;
 class AdFields extends AbstractEnum {
 
   const ACCOUNT_ID = 'account_id';
+  const AD_ACTIVE_TIME = 'ad_active_time';
   const AD_REVIEW_FEEDBACK = 'ad_review_feedback';
+  const AD_SCHEDULE_END_TIME = 'ad_schedule_end_time';
+  const AD_SCHEDULE_START_TIME = 'ad_schedule_start_time';
   const ADLABELS = 'adlabels';
   const ADSET = 'adset';
   const ADSET_ID = 'adset_id';
@@ -52,6 +40,7 @@ class AdFields extends AbstractEnum {
   const CONVERSION_SPECS = 'conversion_specs';
   const CREATED_TIME = 'created_time';
   const CREATIVE = 'creative';
+  const CREATIVE_ASSET_GROUPS_SPEC = 'creative_asset_groups_spec';
   const DEMOLINK_HASH = 'demolink_hash';
   const DISPLAY_SEQUENCE = 'display_sequence';
   const EFFECTIVE_STATUS = 'effective_status';
@@ -61,6 +50,7 @@ class AdFields extends AbstractEnum {
   const ISSUES_INFO = 'issues_info';
   const LAST_UPDATED_BY_APP_ID = 'last_updated_by_app_id';
   const NAME = 'name';
+  const PLACEMENT = 'placement';
   const PREVIEW_SHAREABLE_LINK = 'preview_shareable_link';
   const PRIORITY = 'priority';
   const RECOMMENDATIONS = 'recommendations';
@@ -82,7 +72,10 @@ class AdFields extends AbstractEnum {
   public function getFieldTypes() {
     return array(
       'account_id' => 'string',
+      'ad_active_time' => 'string',
       'ad_review_feedback' => 'AdgroupReviewFeedback',
+      'ad_schedule_end_time' => 'datetime',
+      'ad_schedule_start_time' => 'datetime',
       'adlabels' => 'list<AdLabel>',
       'adset' => 'AdSet',
       'adset_id' => 'string',
@@ -96,6 +89,7 @@ class AdFields extends AbstractEnum {
       'conversion_specs' => 'list<ConversionActionQuery>',
       'created_time' => 'datetime',
       'creative' => 'AdCreative',
+      'creative_asset_groups_spec' => 'AdCreativeAssetGroupsSpec',
       'demolink_hash' => 'string',
       'display_sequence' => 'int',
       'effective_status' => 'EffectiveStatus',
@@ -105,6 +99,7 @@ class AdFields extends AbstractEnum {
       'issues_info' => 'list<AdgroupIssuesInfo>',
       'last_updated_by_app_id' => 'string',
       'name' => 'string',
+      'placement' => 'Placement',
       'preview_shareable_link' => 'string',
       'priority' => 'unsigned int',
       'recommendations' => 'list<AdRecommendation>',

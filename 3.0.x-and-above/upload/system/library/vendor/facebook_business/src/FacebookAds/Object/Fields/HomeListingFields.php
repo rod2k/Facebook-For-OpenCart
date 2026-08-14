@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Fields;
@@ -52,6 +37,16 @@ class HomeListingFields extends AbstractEnum {
   const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
   const CO_2_EMISSION_RATING_EU = 'co_2_emission_rating_eu';
   const CURRENCY = 'currency';
+  const CUSTOM_LABEL_0 = 'custom_label_0';
+  const CUSTOM_LABEL_1 = 'custom_label_1';
+  const CUSTOM_LABEL_2 = 'custom_label_2';
+  const CUSTOM_LABEL_3 = 'custom_label_3';
+  const CUSTOM_LABEL_4 = 'custom_label_4';
+  const CUSTOM_NUMBER_0 = 'custom_number_0';
+  const CUSTOM_NUMBER_1 = 'custom_number_1';
+  const CUSTOM_NUMBER_2 = 'custom_number_2';
+  const CUSTOM_NUMBER_3 = 'custom_number_3';
+  const CUSTOM_NUMBER_4 = 'custom_number_4';
   const DAYS_ON_MARKET = 'days_on_market';
   const DESCRIPTION = 'description';
   const ENERGY_RATING_EU = 'energy_rating_eu';
@@ -60,6 +55,7 @@ class HomeListingFields extends AbstractEnum {
   const HEATING_TYPE = 'heating_type';
   const HOME_LISTING_ID = 'home_listing_id';
   const ID = 'id';
+  const IMAGE_FETCH_STATUS = 'image_fetch_status';
   const IMAGES = 'images';
   const LAUNDRY_TYPE = 'laundry_type';
   const LISTING_TYPE = 'listing_type';
@@ -78,7 +74,10 @@ class HomeListingFields extends AbstractEnum {
   const PRICE = 'price';
   const PROPERTY_TYPE = 'property_type';
   const SANITIZED_IMAGES = 'sanitized_images';
+  const TAGS = 'tags';
+  const UNIT_PRICE = 'unit_price';
   const URL = 'url';
+  const VISIBILITY = 'visibility';
   const YEAR_BUILT = 'year_built';
 
   public function getFieldTypes() {
@@ -98,6 +97,16 @@ class HomeListingFields extends AbstractEnum {
       'category_specific_fields' => 'CatalogSubVerticalList',
       'co_2_emission_rating_eu' => 'Object',
       'currency' => 'string',
+      'custom_label_0' => 'string',
+      'custom_label_1' => 'string',
+      'custom_label_2' => 'string',
+      'custom_label_3' => 'string',
+      'custom_label_4' => 'string',
+      'custom_number_0' => 'unsigned int',
+      'custom_number_1' => 'unsigned int',
+      'custom_number_2' => 'unsigned int',
+      'custom_number_3' => 'unsigned int',
+      'custom_number_4' => 'unsigned int',
       'days_on_market' => 'unsigned int',
       'description' => 'string',
       'energy_rating_eu' => 'Object',
@@ -106,6 +115,7 @@ class HomeListingFields extends AbstractEnum {
       'heating_type' => 'string',
       'home_listing_id' => 'string',
       'id' => 'string',
+      'image_fetch_status' => 'ImageFetchStatus',
       'images' => 'list<string>',
       'laundry_type' => 'string',
       'listing_type' => 'string',
@@ -124,7 +134,10 @@ class HomeListingFields extends AbstractEnum {
       'price' => 'string',
       'property_type' => 'string',
       'sanitized_images' => 'list<string>',
+      'tags' => 'list<string>',
+      'unit_price' => 'Object',
       'url' => 'string',
+      'visibility' => 'Visibility',
       'year_built' => 'int',
     );
   }
