@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Fields;
@@ -51,11 +36,11 @@ class LiveVideoFields extends AbstractEnum {
   const INGEST_STREAMS = 'ingest_streams';
   const IS_MANUAL_MODE = 'is_manual_mode';
   const IS_REFERENCE_ONLY = 'is_reference_only';
-  const LIVE_ENCODERS = 'live_encoders';
   const LIVE_VIEWS = 'live_views';
   const OVERLAY_URL = 'overlay_url';
   const PERMALINK_URL = 'permalink_url';
   const PLANNED_START_TIME = 'planned_start_time';
+  const RECOMMENDED_ENCODER_SETTINGS = 'recommended_encoder_settings';
   const SECONDS_LEFT = 'seconds_left';
   const SECURE_STREAM_URL = 'secure_stream_url';
   const STATUS = 'status';
@@ -75,17 +60,17 @@ class LiveVideoFields extends AbstractEnum {
       'dash_ingest_url' => 'string',
       'dash_preview_url' => 'string',
       'description' => 'string',
-      'embed_html' => 'string',
+      'embed_html' => 'Object',
       'from' => 'Object',
       'id' => 'string',
       'ingest_streams' => 'list<LiveVideoInputStream>',
       'is_manual_mode' => 'bool',
       'is_reference_only' => 'bool',
-      'live_encoders' => 'list<LiveEncoder>',
       'live_views' => 'unsigned int',
       'overlay_url' => 'string',
       'permalink_url' => 'string',
       'planned_start_time' => 'datetime',
+      'recommended_encoder_settings' => 'LiveVideoRecommendedEncoderSettings',
       'seconds_left' => 'int',
       'secure_stream_url' => 'string',
       'status' => 'string',

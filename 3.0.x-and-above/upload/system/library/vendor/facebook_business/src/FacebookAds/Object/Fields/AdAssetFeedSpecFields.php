@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Fields;
@@ -39,42 +24,60 @@ class AdAssetFeedSpecFields extends AbstractEnum {
 
   const AD_FORMATS = 'ad_formats';
   const ADDITIONAL_DATA = 'additional_data';
+  const APP_PRODUCT_PAGE_ID = 'app_product_page_id';
   const ASSET_CUSTOMIZATION_RULES = 'asset_customization_rules';
+  const AUDIOS = 'audios';
   const AUTOTRANSLATE = 'autotranslate';
   const BODIES = 'bodies';
+  const CALL_ADS_CONFIGURATION = 'call_ads_configuration';
   const CALL_TO_ACTION_TYPES = 'call_to_action_types';
   const CALL_TO_ACTIONS = 'call_to_actions';
   const CAPTIONS = 'captions';
   const CAROUSELS = 'carousels';
+  const CTWA_CONSENT_DATA = 'ctwa_consent_data';
   const DESCRIPTIONS = 'descriptions';
+  const EVENTS = 'events';
   const GROUPS = 'groups';
   const IMAGES = 'images';
   const LINK_URLS = 'link_urls';
+  const MESSAGE_EXTENSIONS = 'message_extensions';
   const ONSITE_DESTINATIONS = 'onsite_destinations';
   const OPTIMIZATION_TYPE = 'optimization_type';
-  const POSTS = 'posts';
+  const PROMOTIONAL_METADATA = 'promotional_metadata';
+  const REASONS_TO_SHOP = 'reasons_to_shop';
+  const SHOPS_BUNDLE = 'shops_bundle';
   const TITLES = 'titles';
+  const UPCOMING_EVENTS = 'upcoming_events';
   const VIDEOS = 'videos';
 
   public function getFieldTypes() {
     return array(
       'ad_formats' => 'list<string>',
-      'additional_data' => 'Object',
-      'asset_customization_rules' => 'list<Object>',
+      'additional_data' => 'AdAssetFeedAdditionalData',
+      'app_product_page_id' => 'string',
+      'asset_customization_rules' => 'list<AdAssetFeedSpecAssetCustomizationRule>',
+      'audios' => 'list<Object>',
       'autotranslate' => 'list<string>',
       'bodies' => 'list<AdAssetFeedSpecBody>',
+      'call_ads_configuration' => 'Object',
       'call_to_action_types' => 'list<CallToActionTypes>',
-      'call_to_actions' => 'list<Object>',
+      'call_to_actions' => 'list<AdAssetFeedSpecCallToAction>',
       'captions' => 'list<AdAssetFeedSpecCaption>',
-      'carousels' => 'list<Object>',
+      'carousels' => 'list<AdAssetFeedSpecCarousel>',
+      'ctwa_consent_data' => 'list<Object>',
       'descriptions' => 'list<AdAssetFeedSpecDescription>',
+      'events' => 'list<AdAssetFeedSpecEvents>',
       'groups' => 'list<AdAssetFeedSpecGroupRule>',
       'images' => 'list<AdAssetFeedSpecImage>',
       'link_urls' => 'list<AdAssetFeedSpecLinkURL>',
-      'onsite_destinations' => 'list<Object>',
+      'message_extensions' => 'list<AdAssetMessageExtensions>',
+      'onsite_destinations' => 'list<AdAssetOnsiteDestinations>',
       'optimization_type' => 'string',
-      'posts' => 'list<Object>',
+      'promotional_metadata' => 'Object',
+      'reasons_to_shop' => 'bool',
+      'shops_bundle' => 'bool',
       'titles' => 'list<AdAssetFeedSpecTitle>',
+      'upcoming_events' => 'list<Object>',
       'videos' => 'list<AdAssetFeedSpecVideo>',
     );
   }

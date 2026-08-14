@@ -52,7 +52,7 @@ class UserData {
    * Constructor
    * @param mixed[] $data Associated array of property value initalizing the model
    */
-  public function __construct(array $data = null) {
+  public function __construct(?array $data = null) {
     $this->businessDataUserData = new BusinessDataUserData($data);
     $this->serverSideUserData = new ServerSideUserData($data);
   }
@@ -86,7 +86,7 @@ class UserData {
 
   /**
    * Sets Gender, in lowercase. Either f or m.
-   * @param FacebookAds\Object\ServerSide\Gender $gender Gender, in lowercase. Either f or m.
+   * @param \FacebookAds\Object\ServerSide\Gender $gender Gender, in lowercase. Either f or m.
    * @return $this
    */
   public function setGender($gender) {

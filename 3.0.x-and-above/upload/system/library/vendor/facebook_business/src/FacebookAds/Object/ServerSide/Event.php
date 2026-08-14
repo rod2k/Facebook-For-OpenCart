@@ -49,6 +49,11 @@ class Event implements ArrayAccess {
     'data_processing_options_country' => 'int',
     'data_processing_options_state' => 'int',
     'action_source' => 'string',
+    'app_data' => 'FacebookAds\Object\ServerSide\AppData',
+    'advanced_measurement_table' => 'string',
+    'messaging_channel' => 'string',
+    'original_event_data' => 'FacebookAds\Object\ServerSide\OriginalEventData',
+    'attribution_data' => 'FacebookAds\Object\ServerSide\AttributionData',
   );
   /**
    * Array of attributes where the key is the local name, and the value is the original name
@@ -66,6 +71,11 @@ class Event implements ArrayAccess {
     'data_processing_options_country' => 'data_processing_options_country',
     'data_processing_options_state' => 'data_processing_options_state',
     'action_source' => 'action_source',
+    'app_data' => 'app_data',
+    'advanced_measurement_table' => 'advanced_measurement_table',
+    'messaging_channel' => 'messaging_channel',
+    'original_event_data' => 'original_event_data',
+    'attribution_data' => 'attribution_data',
   );
 
   /**
@@ -84,6 +94,11 @@ class Event implements ArrayAccess {
     'data_processing_options_country' => 'setDataProcessingOptionsCountry',
     'data_processing_options_state' => 'setDataProcessingOptionsState',
     'action_source' => 'setActionSource',
+    'app_data' => 'setAppData',
+    'advanced_measurement_table' => 'setAdvancedMeasurementTable',
+    'messaging_channel' => 'setMessagingChannel',
+    'original_event_data' => 'setOriginalEventData',
+    'attribution_data' => 'setAttributionData',
   );
   /**
    * Array of attributes to getter functions (for serialization of requests)
@@ -101,6 +116,11 @@ class Event implements ArrayAccess {
     'data_processing_options_country' => 'getDataProcessingOptionsCountry',
     'data_processing_options_state' => 'getDataProcessingOptionsState',
     'action_source' => 'getActionSource',
+    'app_data' => 'getAppData',
+    'advanced_measurement_table' => 'getAdvancedMeasurementTable',
+    'messaging_channel' => 'getMessagingChannel',
+    'original_event_data' => 'getOriginalEventData',
+    'attribution_data' => 'getAttributionData',
   );
   /**
    * Associative array for storing property values
@@ -110,9 +130,9 @@ class Event implements ArrayAccess {
 
   /**
    * Constructor
-   * @param mixed[] $data Associated array of property value initalizing the model
+   * @param mixed[] $data Associated array of property value initializing the model
    */
-  public function __construct(array $data = null) {
+  public function __construct(?array $data = null) {
     $this->container['event_name'] = isset($data['event_name']) ? $data['event_name'] : null;
     $this->container['event_time'] = isset($data['event_time']) ? $data['event_time'] : null;
     $this->container['event_source_url'] = isset($data['event_source_url']) ? $data['event_source_url'] : null;
@@ -124,6 +144,11 @@ class Event implements ArrayAccess {
     $this->container['data_processing_options_country'] = isset($data['data_processing_options_country']) ? $data['data_processing_options_country'] : null;
     $this->container['data_processing_options_state'] = isset($data['data_processing_options_state']) ? $data['data_processing_options_state'] : null;
     $this->container['action_source'] = isset($data['action_source']) ? $data['action_source'] : null;
+    $this->container['app_data'] = isset($data['app_data']) ? $data['app_data'] : null;
+    $this->container['advanced_measurement_table'] = isset($data['advanced_measurement_table']) ? $data['advanced_measurement_table'] : null;
+    $this->container['messaging_channel'] = isset($data['messaging_channel']) ? $data['messaging_channel'] : null;
+    $this->container['original_event_data'] = isset($data['original_event_data']) ? $data['original_event_data'] : null;
+    $this->container['attribution_data'] = isset($data['attribution_data']) ? $data['attribution_data'] : null;
   }
 
   public static function paramTypes() {
@@ -243,7 +268,7 @@ class Event implements ArrayAccess {
 
   /**
    * Sets UserData object that contains user data.
-   * @param FacebookAds\Object\ServerSide\UserData $user_data
+   * @param \FacebookAds\Object\ServerSide\UserData $user_data
    * @return $this
    */
   public function setUserData($user_data) {
@@ -254,7 +279,7 @@ class Event implements ArrayAccess {
 
   /**
    * Sets CustomData object that includes additional business data about the event.
-   * @param FacebookAds\Object\ServerSide\CustomData $custom_data
+   * @param \FacebookAds\Object\ServerSide\CustomData $custom_data
    * @return $this
    */
   public function setCustomData($custom_data) {
@@ -318,11 +343,21 @@ class Event implements ArrayAccess {
   }
 
   /**
+   * Set AppData which contains app data and device information for events happening from an app
+   * @param AppData
+   * @return $this
+   */
+  public function setAppData($app_data) {
+    $this->container['app_data'] = $app_data;
+    return $this;
+  }
+
+  /**
    * Returns true if offset exists. False otherwise.
    * @param integer $offset Offset
    * @return boolean
    */
-  public function offsetExists($offset) {
+  public function offsetExists($offset) : bool {
     return isset($this->container[$offset]);
   }
 
@@ -331,7 +366,7 @@ class Event implements ArrayAccess {
    * @param integer $offset Offset
    * @return mixed
    */
-  public function offsetGet($offset) {
+  public function offsetGet($offset) : mixed {
     return isset($this->container[$offset]) ? $this->container[$offset] : null;
   }
 
@@ -341,7 +376,7 @@ class Event implements ArrayAccess {
    * @param mixed $value Value to be set
    * @return void
    */
-  public function offsetSet($offset, $value) {
+  public function offsetSet($offset, $value) : void {
     if (is_null($offset)) {
       $this->container[] = $value;
     } else {
@@ -354,7 +389,7 @@ class Event implements ArrayAccess {
    * @param integer $offset Offset
    * @return void
    */
-  public function offsetUnset($offset) {
+  public function offsetUnset($offset) : void {
     unset($this->container[$offset]);
   }
 
@@ -381,12 +416,16 @@ class Event implements ArrayAccess {
       'action_source',
       $this->container['action_source']
     );
-    $normalized_payload = array_filter($normalized_payload, function($val) { if(is_array($val)) { return true; } else { return strlen($val); }});
+    $normalized_payload['advanced_measurement_table'] = $this->getAdvancedMeasurementTable();
+    $normalized_payload['messaging_channel'] = $this->getMessagingChannel();
+    $normalized_payload = array_filter($normalized_payload, function($val) { if(is_array($val)) { return true; } else { return strlen((string) $val); }});
     // Add the opt_out value back in if it was filtered out
     if ($this->getOptOut() === false) {
       $normalized_payload['opt_out'] = $this->getOptOut();
     }
-
+    $normalized_payload['app_data'] = isset($this->container['app_data']) ? $this->getAppData()->normalize() : null;
+    $normalized_payload['original_event_data'] = isset($this->container['original_event_data']) ? $this->getOriginalEventData()->normalize() : null;
+    $normalized_payload['attribution_data'] = isset($this->container['attribution_data']) ? $this->getAttributionData()->normalize() : null;
     return $normalized_payload;
   }
 
@@ -434,7 +473,7 @@ class Event implements ArrayAccess {
 
   /**
    * Gets UserData object that contains user data
-   * @return FacebookAds\Object\ServerSide\UserData
+   * @return \FacebookAds\Object\ServerSide\UserData
    */
   public function getUserData() {
     return $this->container['user_data'];
@@ -442,7 +481,7 @@ class Event implements ArrayAccess {
 
   /**
    * Gets customData object that includes additional business data about the event.
-   * @return FacebookAds\Object\ServerSide\CustomData
+   * @return \FacebookAds\Object\ServerSide\CustomData
    */
   public function getCustomData() {
     return $this->container['custom_data'];
@@ -470,6 +509,82 @@ class Event implements ArrayAccess {
    */
   public function getDataProcessingOptionsCountry() {
     return $this->container['data_processing_options_country'];
+  }
+
+  /**
+   * Get AppData which contains app data and device information for events happening from an app
+   * @return AppData
+   */
+  public function getAppData() {
+    return $this->container['app_data'];
+  }
+
+  /**
+   * Sets advanced_measurement_table, Only used for the Advanced Measurement API in the Advanced Analytics product.
+   * @return $this
+   */
+  public function setAdvancedMeasurementTable($advanced_measurement_table) {
+    $this->container['advanced_measurement_table'] = $advanced_measurement_table;
+    return $this;
+  }
+
+  /**
+   * Gets advanced_measurement_table, Only used for the Advanced Measurement API in the Advanced Analytics product.
+   * @return string
+   */
+  public function getAdvancedMeasurementTable() {
+    return $this->container['advanced_measurement_table'];
+  }
+
+  /**
+   * Sets the messaging channel of the event.
+   * @return $this
+   */
+  public function setMessagingChannel($messaging_channel) {
+    $this->container['messaging_channel'] = $messaging_channel;
+    return $this;
+  }
+
+  /**
+   * Return the messaging channel of the event.
+   * @return string
+   */
+  public function getMessagingChannel() {
+    return $this->container['messaging_channel'];
+  }
+
+  /**
+   * Sets the original event data of the event.
+   * @return $this
+   */
+  public function setOriginalEventData($original_event_data) {
+    $this->container['original_event_data'] = $original_event_data;
+    return $this;
+  }
+
+  /**
+   * Return the original event data of the event.
+   * @return OriginalEventData
+   */
+  public function getOriginalEventData() {
+    return $this->container['original_event_data'];
+  }
+
+  /**
+   * Sets the attribution data of the event.
+   * @return $this
+   */
+  public function setAttributionData($attribution_data) {
+    $this->container['attribution_data'] = $attribution_data;
+    return $this;
+  }
+
+  /**
+   * Return the attribution data of the event.
+   * @return AttributionData
+   */
+  public function getAttributionData() {
+    return $this->container['attribution_data'];
   }
 
   /**

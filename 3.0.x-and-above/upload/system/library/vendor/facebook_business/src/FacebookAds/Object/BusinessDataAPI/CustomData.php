@@ -36,7 +36,7 @@ class CustomData {
    * Constructor
    * @param mixed[] $data Associated array of property value initializing the model
    */
-  public function __construct(array $data = null) {
+  public function __construct(?array $data = null) {
     $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
     $this->container['contents'] = isset($data['contents']) ? $data['contents'] : null;
@@ -193,7 +193,7 @@ class CustomData {
       if (is_array($val)) {
         return true;
       } else {
-        return strlen($val);
+        return strlen((string) $val);
       }
     });
 

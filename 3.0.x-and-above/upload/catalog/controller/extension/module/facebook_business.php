@@ -457,7 +457,7 @@ class ControllerExtensionModuleFacebookBusiness extends Controller {
         }
 
         // If description doesn't contain non-English characters, check if all Uppercase
-        if (strlen($description) == strlen(utf8_decode($description))) {
+        if (!preg_match('/[\x80-\xFF]/', $description)) {
             if (strtoupper($description) == $description) {
                 $description = ucfirst(strtolower($description));
             }

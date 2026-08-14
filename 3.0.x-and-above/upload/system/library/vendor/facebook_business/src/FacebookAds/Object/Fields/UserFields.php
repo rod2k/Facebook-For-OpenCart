@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Fields;
@@ -39,7 +24,9 @@ class UserFields extends AbstractEnum {
 
   const ABOUT = 'about';
   const AGE_RANGE = 'age_range';
+  const AVATAR_2D_PROFILE_PICTURE = 'avatar_2d_profile_picture';
   const BIRTHDAY = 'birthday';
+  const COMMUNITY = 'community';
   const COVER = 'cover';
   const CURRENCY = 'currency';
   const EDUCATION = 'education';
@@ -50,12 +37,13 @@ class UserFields extends AbstractEnum {
   const GENDER = 'gender';
   const HOMETOWN = 'hometown';
   const ID = 'id';
+  const ID_FOR_AVATARS = 'id_for_avatars';
   const INSPIRATIONAL_PEOPLE = 'inspirational_people';
+  const INSTAGRAM_USER_SELF_ASSET = 'instagram_user_self_asset';
   const INSTALL_TYPE = 'install_type';
   const INSTALLED = 'installed';
-  const INTERESTED_IN = 'interested_in';
   const IS_GUEST_USER = 'is_guest_user';
-  const IS_VERIFIED = 'is_verified';
+  const IS_WORK_ACCOUNT = 'is_work_account';
   const LANGUAGES = 'languages';
   const LAST_NAME = 'last_name';
   const LINK = 'link';
@@ -90,10 +78,12 @@ class UserFields extends AbstractEnum {
     return array(
       'about' => 'string',
       'age_range' => 'AgeRange',
+      'avatar_2d_profile_picture' => 'AvatarProfilePicture',
       'birthday' => 'string',
+      'community' => 'Group',
       'cover' => 'UserCoverPhoto',
       'currency' => 'Currency',
-      'education' => 'list<Object>',
+      'education' => 'list<EducationExperience>',
       'email' => 'string',
       'favorite_athletes' => 'list<Experience>',
       'favorite_teams' => 'list<Experience>',
@@ -101,12 +91,13 @@ class UserFields extends AbstractEnum {
       'gender' => 'string',
       'hometown' => 'Page',
       'id' => 'string',
+      'id_for_avatars' => 'string',
       'inspirational_people' => 'list<Experience>',
+      'instagram_user_self_asset' => 'InstagramUser',
       'install_type' => 'string',
       'installed' => 'bool',
-      'interested_in' => 'list<string>',
       'is_guest_user' => 'bool',
-      'is_verified' => 'bool',
+      'is_work_account' => 'bool',
       'languages' => 'list<Experience>',
       'last_name' => 'string',
       'link' => 'string',

@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Values;
@@ -40,12 +25,15 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const ADGROUP_ID = 'adgroup_id';
   const AGE_MAX = 'age_max';
   const AGE_MIN = 'age_min';
+  const AGE_RANGE = 'age_range';
   const ALTERNATE_AUTO_TARGETING_OPTION = 'alternate_auto_targeting_option';
   const APP_INSTALL_STATE = 'app_install_state';
   const AUDIENCE_NETWORK_POSITIONS = 'audience_network_positions';
   const BEHAVIORS = 'behaviors';
   const BRAND_SAFETY_CONTENT_FILTER_LEVELS = 'brand_safety_content_filter_levels';
   const BRAND_SAFETY_CONTENT_SEVERITY_LEVELS = 'brand_safety_content_severity_levels';
+  const CAFE_CA_CONTRACTION_TARGETING_SIGNAL = 'cafe_ca_contraction_targeting_signal';
+  const CAFE_CA_EXPANSION_TARGETING_SIGNAL = 'cafe_ca_expansion_targeting_signal';
   const CATALOG_BASED_TARGETING = 'catalog_based_targeting';
   const CITIES = 'cities';
   const CITY_KEYS = 'city_keys';
@@ -68,7 +56,9 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const EFFECTIVE_FACEBOOK_POSITIONS = 'effective_facebook_positions';
   const EFFECTIVE_INSTAGRAM_POSITIONS = 'effective_instagram_positions';
   const EFFECTIVE_MESSENGER_POSITIONS = 'effective_messenger_positions';
+  const EFFECTIVE_OCULUS_POSITIONS = 'effective_oculus_positions';
   const EFFECTIVE_PUBLISHER_PLATFORMS = 'effective_publisher_platforms';
+  const EFFECTIVE_THREADS_POSITIONS = 'effective_threads_positions';
   const EFFECTIVE_WHATSAPP_POSITIONS = 'effective_whatsapp_positions';
   const ENGAGEMENT_SPECS = 'engagement_specs';
   const ETHNIC_AFFINITY = 'ethnic_affinity';
@@ -87,6 +77,7 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const EXCLUDED_USER_ADCLUSTERS = 'excluded_user_adclusters';
   const EXCLUDED_USER_DEVICE = 'excluded_user_device';
   const EXCLUSIONS = 'exclusions';
+  const EXPANDED_IMPLICIT_CUSTOM_AUDIENCES = 'expanded_implicit_custom_audiences';
   const FACEBOOK_POSITIONS = 'facebook_positions';
   const FAMILY_STATUSES = 'family_statuses';
   const FB_DEAL_ID = 'fb_deal_id';
@@ -103,6 +94,7 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const HOME_TYPE = 'home_type';
   const HOME_VALUE = 'home_value';
   const HOUSEHOLD_COMPOSITION = 'household_composition';
+  const HOUSEHOLD_INCOME = 'household_income';
   const ID = 'id';
   const INCOME = 'income';
   const INDUSTRIES = 'industries';
@@ -121,11 +113,13 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const LOCATION_CATEGORIES = 'location_categories';
   const LOCATION_CLUSTER_IDS = 'location_cluster_ids';
   const LOCATION_EXPANSION = 'location_expansion';
+  const MARKETING_MESSAGE_CHANNELS = 'marketing_message_channels';
   const MARKETPLACE_PRODUCT_CATEGORIES = 'marketplace_product_categories';
   const MESSENGER_POSITIONS = 'messenger_positions';
   const MOBILE_DEVICE_MODEL = 'mobile_device_model';
   const MOMS = 'moms';
   const NET_WORTH = 'net_worth';
+  const OCULUS_POSITIONS = 'oculus_positions';
   const OFFICE_TYPE = 'office_type';
   const PAGE_TYPES = 'page_types';
   const PLACE_PAGE_SET_IDS = 'place_page_set_ids';
@@ -140,12 +134,17 @@ class AdAccountTargetingUnifiedWhitelistedTypesValues extends AbstractEnum {
   const RELATIONSHIP_STATUSES = 'relationship_statuses';
   const RTB_FLAG = 'rtb_flag';
   const SITE_CATEGORY = 'site_category';
+  const SUBSCRIBER_UNIVERSE = 'subscriber_universe';
+  const TAFE_CA_MITIGATION_STRATEGY = 'tafe_ca_mitigation_strategy';
+  const TARGETING_AUTOMATION = 'targeting_automation';
   const TARGETING_OPTIMIZATION = 'targeting_optimization';
   const TARGETING_RELAXATION_TYPES = 'targeting_relaxation_types';
+  const THREADS_POSITIONS = 'threads_positions';
   const TIMEZONES = 'timezones';
   const TOPIC = 'topic';
   const TRENDING = 'trending';
   const USER_ADCLUSTERS = 'user_adclusters';
+  const USER_AGE_UNKNOWN = 'user_age_unknown';
   const USER_DEVICE = 'user_device';
   const USER_EVENT = 'user_event';
   const USER_OS = 'user_os';

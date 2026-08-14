@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Values;
@@ -49,10 +34,12 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const AD_ACCOUNT_REMOVE_USER_FROM_ROLE = 'ad_account_remove_user_from_role';
   const AD_ACCOUNT_RESET_SPEND_LIMIT = 'ad_account_reset_spend_limit';
   const AD_ACCOUNT_SET_BUSINESS_INFORMATION = 'ad_account_set_business_information';
+  const AD_ACCOUNT_UPDATE_AUDIENCE_TYPE_URL_PARAMETER = 'ad_account_update_audience_type_url_parameter';
   const AD_ACCOUNT_UPDATE_SPEND_LIMIT = 'ad_account_update_spend_limit';
   const AD_ACCOUNT_UPDATE_STATUS = 'ad_account_update_status';
   const AD_REVIEW_APPROVED = 'ad_review_approved';
   const AD_REVIEW_DECLINED = 'ad_review_declined';
+  const ADACCOUNT_UPDATE_AUDIENCE_SEGMENT = 'adaccount_update_audience_segment';
   const ADD_FUNDING_SOURCE = 'add_funding_source';
   const ADD_IMAGES = 'add_images';
   const BILLING_EVENT = 'billing_event';
@@ -73,6 +60,7 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const FUNDING_EVENT_INITIATED = 'funding_event_initiated';
   const FUNDING_EVENT_SUCCESSFUL = 'funding_event_successful';
   const LIFETIME_BUDGET_SPENT = 'lifetime_budget_spent';
+  const MERGE_CAMPAIGNS = 'merge_campaigns';
   const RECEIVE_AUDIENCE = 'receive_audience';
   const REMOVE_FUNDING_SOURCE = 'remove_funding_source';
   const REMOVE_SHARED_AUDIENCE = 'remove_shared_audience';
@@ -105,12 +93,19 @@ class AdActivityEventTypeValues extends AbstractEnum {
   const UPDATE_CAMPAIGN_AD_SCHEDULING = 'update_campaign_ad_scheduling';
   const UPDATE_CAMPAIGN_BUDGET = 'update_campaign_budget';
   const UPDATE_CAMPAIGN_BUDGET_OPTIMIZATION_TOGGLING_STATUS = 'update_campaign_budget_optimization_toggling_status';
+  const UPDATE_CAMPAIGN_BUDGET_SCHEDULING_STATE = 'update_campaign_budget_scheduling_state';
+  const UPDATE_CAMPAIGN_CONVERSION_GOAL = 'update_campaign_conversion_goal';
+  const UPDATE_CAMPAIGN_DELIVERY_DESTINATION = 'update_campaign_delivery_destination';
   const UPDATE_CAMPAIGN_DELIVERY_TYPE = 'update_campaign_delivery_type';
   const UPDATE_CAMPAIGN_GROUP_AD_SCHEDULING = 'update_campaign_group_ad_scheduling';
+  const UPDATE_CAMPAIGN_GROUP_BUDGET_SCHEDULING_STATE = 'update_campaign_group_budget_scheduling_state';
   const UPDATE_CAMPAIGN_GROUP_DELIVERY_TYPE = 'update_campaign_group_delivery_type';
+  const UPDATE_CAMPAIGN_GROUP_HIGH_DEMAND_PERIODS = 'update_campaign_group_high_demand_periods';
   const UPDATE_CAMPAIGN_GROUP_SPEND_CAP = 'update_campaign_group_spend_cap';
+  const UPDATE_CAMPAIGN_HIGH_DEMAND_PERIODS = 'update_campaign_high_demand_periods';
   const UPDATE_CAMPAIGN_NAME = 'update_campaign_name';
   const UPDATE_CAMPAIGN_RUN_STATUS = 'update_campaign_run_status';
   const UPDATE_CAMPAIGN_SCHEDULE = 'update_campaign_schedule';
+  const UPDATE_CAMPAIGN_VALUE_ADJUSTMENT_RULE = 'update_campaign_value_adjustment_rule';
   const UPDATE_DELIVERY_TYPE_CROSS_LEVEL_SHIFT = 'update_delivery_type_cross_level_shift';
 }

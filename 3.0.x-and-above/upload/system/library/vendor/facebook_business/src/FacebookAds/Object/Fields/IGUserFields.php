@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Fields;
@@ -41,13 +26,18 @@ class IGUserFields extends AbstractEnum {
   const BUSINESS_DISCOVERY = 'business_discovery';
   const FOLLOWERS_COUNT = 'followers_count';
   const FOLLOWS_COUNT = 'follows_count';
+  const HAS_PROFILE_PIC = 'has_profile_pic';
   const ID = 'id';
   const IG_ID = 'ig_id';
+  const IS_PUBLISHED = 'is_published';
+  const LEGACY_INSTAGRAM_USER_ID = 'legacy_instagram_user_id';
   const MEDIA_COUNT = 'media_count';
   const MENTIONED_COMMENT = 'mentioned_comment';
   const MENTIONED_MEDIA = 'mentioned_media';
   const NAME = 'name';
+  const OWNER_BUSINESS = 'owner_business';
   const PROFILE_PICTURE_URL = 'profile_picture_url';
+  const SHOPPING_PRODUCT_TAG_ELIGIBILITY = 'shopping_product_tag_eligibility';
   const SHOPPING_REVIEW_STATUS = 'shopping_review_status';
   const USERNAME = 'username';
   const WEBSITE = 'website';
@@ -58,13 +48,18 @@ class IGUserFields extends AbstractEnum {
       'business_discovery' => 'IGUser',
       'followers_count' => 'int',
       'follows_count' => 'int',
+      'has_profile_pic' => 'bool',
       'id' => 'string',
       'ig_id' => 'int',
+      'is_published' => 'bool',
+      'legacy_instagram_user_id' => 'string',
       'media_count' => 'int',
       'mentioned_comment' => 'IGComment',
       'mentioned_media' => 'IGMedia',
       'name' => 'string',
+      'owner_business' => 'Business',
       'profile_picture_url' => 'string',
+      'shopping_product_tag_eligibility' => 'bool',
       'shopping_review_status' => 'string',
       'username' => 'string',
       'website' => 'string',

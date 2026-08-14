@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object;
@@ -34,6 +19,7 @@ use FacebookAds\Object\Values\CommentLiveFilterValues;
 use FacebookAds\Object\Values\CommentOrderValues;
 use FacebookAds\Object\Values\LiveVideoBroadcastStatusValues;
 use FacebookAds\Object\Values\LiveVideoLiveCommentModerationSettingValues;
+use FacebookAds\Object\Values\LiveVideoPersistentStreamKeyStatusValues;
 use FacebookAds\Object\Values\LiveVideoProjectionValues;
 use FacebookAds\Object\Values\LiveVideoSourceValues;
 use FacebookAds\Object\Values\LiveVideoSpatialAudioFormatValues;
@@ -70,6 +56,7 @@ class LiveVideo extends AbstractCrudObject {
     $ref_enums['BroadcastStatus'] = LiveVideoBroadcastStatusValues::getInstance()->getValues();
     $ref_enums['Source'] = LiveVideoSourceValues::getInstance()->getValues();
     $ref_enums['LiveCommentModerationSetting'] = LiveVideoLiveCommentModerationSettingValues::getInstance()->getValues();
+    $ref_enums['PersistentStreamKeyStatus'] = LiveVideoPersistentStreamKeyStatusValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -78,7 +65,7 @@ class LiveVideo extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
-      'uid' => 'Object',
+      'uid' => 'string',
     );
     $enums = array(
     );
@@ -351,21 +338,23 @@ class LiveVideo extends AbstractCrudObject {
     $param_types = array(
       'allow_bm_crossposting' => 'bool',
       'content_tags' => 'list<string>',
+      'cross_share_to_group_ids' => 'list<string>',
       'crossposting_actions' => 'list<map>',
       'custom_labels' => 'list<string>',
       'description' => 'string',
       'direct_share_status' => 'unsigned int',
       'embeddable' => 'bool',
       'end_live_video' => 'bool',
+      'event_params' => 'Object',
       'is_audio_only' => 'bool',
       'is_manual_mode' => 'bool',
       'live_comment_moderation_setting' => 'list<live_comment_moderation_setting_enum>',
-      'live_encoders' => 'list<string>',
       'master_ingest_stream_id' => 'string',
       'og_icon_id' => 'string',
       'og_phrase' => 'string',
+      'persistent_stream_key_status' => 'persistent_stream_key_status_enum',
       'place' => 'Object',
-      'planned_start_time' => 'int',
+      'planned_start_time' => 'datetime',
       'privacy' => 'string',
       'published' => 'bool',
       'schedule_custom_profile_image' => 'file',
@@ -380,6 +369,7 @@ class LiveVideo extends AbstractCrudObject {
     );
     $enums = array(
       'live_comment_moderation_setting_enum' => LiveVideoLiveCommentModerationSettingValues::getInstance()->getValues(),
+      'persistent_stream_key_status_enum' => LiveVideoPersistentStreamKeyStatusValues::getInstance()->getValues(),
       'status_enum' => LiveVideoStatusValues::getInstance()->getValues(),
       'stream_type_enum' => LiveVideoStreamTypeValues::getInstance()->getValues(),
     );

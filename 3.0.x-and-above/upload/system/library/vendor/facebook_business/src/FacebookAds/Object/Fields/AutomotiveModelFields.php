@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Fields;
@@ -44,6 +29,15 @@ class AutomotiveModelFields extends AbstractEnum {
   const CATEGORY_SPECIFIC_FIELDS = 'category_specific_fields';
   const CURRENCY = 'currency';
   const CUSTOM_LABEL_0 = 'custom_label_0';
+  const CUSTOM_LABEL_1 = 'custom_label_1';
+  const CUSTOM_LABEL_2 = 'custom_label_2';
+  const CUSTOM_LABEL_3 = 'custom_label_3';
+  const CUSTOM_LABEL_4 = 'custom_label_4';
+  const CUSTOM_NUMBER_0 = 'custom_number_0';
+  const CUSTOM_NUMBER_1 = 'custom_number_1';
+  const CUSTOM_NUMBER_2 = 'custom_number_2';
+  const CUSTOM_NUMBER_3 = 'custom_number_3';
+  const CUSTOM_NUMBER_4 = 'custom_number_4';
   const DESCRIPTION = 'description';
   const DRIVETRAIN = 'drivetrain';
   const EXTERIOR_COLOR = 'exterior_color';
@@ -52,6 +46,7 @@ class AutomotiveModelFields extends AbstractEnum {
   const FUEL_TYPE = 'fuel_type';
   const GENERATION = 'generation';
   const ID = 'id';
+  const IMAGE_FETCH_STATUS = 'image_fetch_status';
   const IMAGES = 'images';
   const INTERIOR_COLOR = 'interior_color';
   const INTERIOR_UPHOLSTERY = 'interior_upholstery';
@@ -62,7 +57,9 @@ class AutomotiveModelFields extends AbstractEnum {
   const TITLE = 'title';
   const TRANSMISSION = 'transmission';
   const TRIM = 'trim';
+  const UNIT_PRICE = 'unit_price';
   const URL = 'url';
+  const VISIBILITY = 'visibility';
   const YEAR = 'year';
 
   public function getFieldTypes() {
@@ -74,6 +71,15 @@ class AutomotiveModelFields extends AbstractEnum {
       'category_specific_fields' => 'CatalogSubVerticalList',
       'currency' => 'string',
       'custom_label_0' => 'string',
+      'custom_label_1' => 'string',
+      'custom_label_2' => 'string',
+      'custom_label_3' => 'string',
+      'custom_label_4' => 'string',
+      'custom_number_0' => 'unsigned int',
+      'custom_number_1' => 'unsigned int',
+      'custom_number_2' => 'unsigned int',
+      'custom_number_3' => 'unsigned int',
+      'custom_number_4' => 'unsigned int',
       'description' => 'string',
       'drivetrain' => 'string',
       'exterior_color' => 'string',
@@ -82,6 +88,7 @@ class AutomotiveModelFields extends AbstractEnum {
       'fuel_type' => 'string',
       'generation' => 'string',
       'id' => 'string',
+      'image_fetch_status' => 'ImageFetchStatus',
       'images' => 'list<string>',
       'interior_color' => 'string',
       'interior_upholstery' => 'string',
@@ -92,8 +99,10 @@ class AutomotiveModelFields extends AbstractEnum {
       'title' => 'string',
       'transmission' => 'string',
       'trim' => 'string',
+      'unit_price' => 'Object',
       'url' => 'string',
-      'year' => 'unsigned int',
+      'visibility' => 'Visibility',
+      'year' => 'int',
     );
   }
 }

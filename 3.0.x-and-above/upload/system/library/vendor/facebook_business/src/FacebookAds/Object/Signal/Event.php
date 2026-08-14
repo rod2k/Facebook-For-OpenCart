@@ -45,7 +45,7 @@ class Event {
    * Constructor
    * @param mixed[] $data Associated array of property value initalizing the model
    */
-  public function __construct(array $data = null) {
+  public function __construct(?array $data = null) {
     $business_data = $data;
     $server_data = $data;
     $business_data['user_data'] = isset($data['user_data']) ? $data['user_data']->getBusinessDataUserData() : null;
@@ -99,7 +99,7 @@ class Event {
 
   /**
    * Sets UserData object that contains user data.
-   * @param FacebookAds\Object\Signal\UserData $user_data
+   * @param \FacebookAds\Object\Signal\UserData $user_data
    * @return $this
    */
   public function setUserData($user_data) {
@@ -111,7 +111,7 @@ class Event {
 
   /**
    * Sets CustomData object that includes additional business data about the event.
-   * @param FacebookAds\Object\Signal\CustomData $custom_data
+   * @param \FacebookAds\Object\Signal\CustomData $custom_data
    * @return $this
    */
   public function setCustomData($custom_data) {

@@ -46,14 +46,14 @@ class EventRequest {
    * @param string $page_id page id
    * @param mixed[] $data Associated array of property value initializing the model
    */
-  public function __construct(string $page_id, array $data = null) {
+  public function __construct(string $page_id, ?array $data = null) {
     $this->container['page_id'] = $page_id;
     $this->container['events'] = isset($data['events']) ? $data['events'] : null;
   }
 
   /**
    * Sets an array of Business Data Event objects
-   * @param FacebookAds\Object\BusinessDataAPI\Event[] $events An array of Business Data Event objects
+   * @param \FacebookAds\Object\BusinessDataAPI\Event[] $events An array of Business Data Event objects
    * @return $this
    */
   public function setEvents($events) {

@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Fields;
@@ -42,18 +27,10 @@ class AdsInsightsFields extends AbstractEnum {
   const ACCOUNT_NAME = 'account_name';
   const ACTION_VALUES = 'action_values';
   const ACTIONS = 'actions';
-  const AD_BID_TYPE = 'ad_bid_type';
-  const AD_BID_VALUE = 'ad_bid_value';
   const AD_CLICK_ACTIONS = 'ad_click_actions';
-  const AD_DELIVERY = 'ad_delivery';
   const AD_ID = 'ad_id';
   const AD_IMPRESSION_ACTIONS = 'ad_impression_actions';
   const AD_NAME = 'ad_name';
-  const ADSET_BID_TYPE = 'adset_bid_type';
-  const ADSET_BID_VALUE = 'adset_bid_value';
-  const ADSET_BUDGET_TYPE = 'adset_budget_type';
-  const ADSET_BUDGET_VALUE = 'adset_budget_value';
-  const ADSET_DELIVERY = 'adset_delivery';
   const ADSET_END = 'adset_end';
   const ADSET_ID = 'adset_id';
   const ADSET_NAME = 'adset_name';
@@ -63,6 +40,7 @@ class AdsInsightsFields extends AbstractEnum {
   const AUCTION_BID = 'auction_bid';
   const AUCTION_COMPETITIVENESS = 'auction_competitiveness';
   const AUCTION_MAX_COMPETITOR_BID = 'auction_max_competitor_bid';
+  const AVERAGE_PURCHASES_CONVERSION_VALUE = 'average_purchases_conversion_value';
   const BUYING_TYPE = 'buying_type';
   const CAMPAIGN_ID = 'campaign_id';
   const CAMPAIGN_NAME = 'campaign_name';
@@ -74,23 +52,27 @@ class AdsInsightsFields extends AbstractEnum {
   const CATALOG_SEGMENT_VALUE_OMNI_PURCHASE_ROAS = 'catalog_segment_value_omni_purchase_roas';
   const CATALOG_SEGMENT_VALUE_WEBSITE_PURCHASE_ROAS = 'catalog_segment_value_website_purchase_roas';
   const CLICKS = 'clicks';
+  const CONVERSION_LEAD_RATE = 'conversion_lead_rate';
+  const CONVERSION_LEADS = 'conversion_leads';
   const CONVERSION_RATE_RANKING = 'conversion_rate_ranking';
   const CONVERSION_VALUES = 'conversion_values';
   const CONVERSIONS = 'conversions';
   const CONVERTED_PRODUCT_QUANTITY = 'converted_product_quantity';
   const CONVERTED_PRODUCT_VALUE = 'converted_product_value';
+  const CONVERTED_PROMOTED_PRODUCT_QUANTITY = 'converted_promoted_product_quantity';
+  const CONVERTED_PROMOTED_PRODUCT_VALUE = 'converted_promoted_product_value';
   const COST_PER_15_SEC_VIDEO_VIEW = 'cost_per_15_sec_video_view';
   const COST_PER_2_SEC_CONTINUOUS_VIDEO_VIEW = 'cost_per_2_sec_continuous_video_view';
   const COST_PER_ACTION_TYPE = 'cost_per_action_type';
   const COST_PER_AD_CLICK = 'cost_per_ad_click';
   const COST_PER_CONVERSION = 'cost_per_conversion';
+  const COST_PER_CONVERSION_LEAD = 'cost_per_conversion_lead';
   const COST_PER_DDA_COUNTBY_CONVS = 'cost_per_dda_countby_convs';
   const COST_PER_ESTIMATED_AD_RECALLERS = 'cost_per_estimated_ad_recallers';
   const COST_PER_INLINE_LINK_CLICK = 'cost_per_inline_link_click';
   const COST_PER_INLINE_POST_ENGAGEMENT = 'cost_per_inline_post_engagement';
   const COST_PER_ONE_THOUSAND_AD_IMPRESSION = 'cost_per_one_thousand_ad_impression';
   const COST_PER_OUTBOUND_CLICK = 'cost_per_outbound_click';
-  const COST_PER_STORE_VISIT_ACTION = 'cost_per_store_visit_action';
   const COST_PER_THRUPLAY = 'cost_per_thruplay';
   const COST_PER_UNIQUE_ACTION_TYPE = 'cost_per_unique_action_type';
   const COST_PER_UNIQUE_CLICK = 'cost_per_unique_click';
@@ -101,10 +83,12 @@ class AdsInsightsFields extends AbstractEnum {
   const CPM = 'cpm';
   const CPP = 'cpp';
   const CREATED_TIME = 'created_time';
+  const CREATIVE_MEDIA_TYPE = 'creative_media_type';
   const CTR = 'ctr';
   const DATE_START = 'date_start';
   const DATE_STOP = 'date_stop';
   const DDA_COUNTBY_CONVS = 'dda_countby_convs';
+  const DDA_RESULTS = 'dda_results';
   const ENGAGEMENT_RATE_RANKING = 'engagement_rate_ranking';
   const ESTIMATED_AD_RECALL_RATE = 'estimated_ad_recall_rate';
   const ESTIMATED_AD_RECALL_RATE_LOWER_BOUND = 'estimated_ad_recall_rate_lower_bound';
@@ -120,27 +104,53 @@ class AdsInsightsFields extends AbstractEnum {
   const INLINE_LINK_CLICK_CTR = 'inline_link_click_ctr';
   const INLINE_LINK_CLICKS = 'inline_link_clicks';
   const INLINE_POST_ENGAGEMENT = 'inline_post_engagement';
+  const INSTAGRAM_UPCOMING_EVENT_REMINDERS_SET = 'instagram_upcoming_event_reminders_set';
   const INSTANT_EXPERIENCE_CLICKS_TO_OPEN = 'instant_experience_clicks_to_open';
   const INSTANT_EXPERIENCE_CLICKS_TO_START = 'instant_experience_clicks_to_start';
   const INSTANT_EXPERIENCE_OUTBOUND_CLICKS = 'instant_experience_outbound_clicks';
   const INTERACTIVE_COMPONENT_TAP = 'interactive_component_tap';
   const LABELS = 'labels';
+  const LANDING_PAGE_VIEW_ACTIONS_PER_LINK_CLICK = 'landing_page_view_actions_per_link_click';
+  const LANDING_PAGE_VIEW_PER_PURCHASE_RATE = 'landing_page_view_per_purchase_rate';
   const LOCATION = 'location';
+  const MARKETING_MESSAGES_COST_PER_DELIVERED = 'marketing_messages_cost_per_delivered';
+  const MARKETING_MESSAGES_COST_PER_LINK_BTN_CLICK = 'marketing_messages_cost_per_link_btn_click';
+  const MARKETING_MESSAGES_DELIVERED = 'marketing_messages_delivered';
+  const MARKETING_MESSAGES_DELIVERY_RATE = 'marketing_messages_delivery_rate';
+  const MARKETING_MESSAGES_LINK_BTN_CLICK = 'marketing_messages_link_btn_click';
+  const MARKETING_MESSAGES_LINK_BTN_CLICK_RATE = 'marketing_messages_link_btn_click_rate';
+  const MARKETING_MESSAGES_MEDIA_VIEW_RATE = 'marketing_messages_media_view_rate';
+  const MARKETING_MESSAGES_PHONE_CALL_BTN_CLICK_RATE = 'marketing_messages_phone_call_btn_click_rate';
+  const MARKETING_MESSAGES_QUICK_REPLY_BTN_CLICK = 'marketing_messages_quick_reply_btn_click';
+  const MARKETING_MESSAGES_QUICK_REPLY_BTN_CLICK_RATE = 'marketing_messages_quick_reply_btn_click_rate';
+  const MARKETING_MESSAGES_READ = 'marketing_messages_read';
+  const MARKETING_MESSAGES_READ_RATE = 'marketing_messages_read_rate';
+  const MARKETING_MESSAGES_SENT = 'marketing_messages_sent';
+  const MARKETING_MESSAGES_SPEND = 'marketing_messages_spend';
+  const MARKETING_MESSAGES_SPEND_CURRENCY = 'marketing_messages_spend_currency';
+  const MARKETING_MESSAGES_WEBSITE_ADD_TO_CART = 'marketing_messages_website_add_to_cart';
+  const MARKETING_MESSAGES_WEBSITE_INITIATE_CHECKOUT = 'marketing_messages_website_initiate_checkout';
+  const MARKETING_MESSAGES_WEBSITE_PURCHASE = 'marketing_messages_website_purchase';
+  const MARKETING_MESSAGES_WEBSITE_PURCHASE_VALUES = 'marketing_messages_website_purchase_values';
   const MOBILE_APP_PURCHASE_ROAS = 'mobile_app_purchase_roas';
   const OBJECTIVE = 'objective';
+  const ONSITE_CONVERSION_MESSAGING_DETECTED_PURCHASE_DEDUPED = 'onsite_conversion_messaging_detected_purchase_deduped';
+  const OPTIMIZATION_GOAL = 'optimization_goal';
   const OUTBOUND_CLICKS = 'outbound_clicks';
   const OUTBOUND_CLICKS_CTR = 'outbound_clicks_ctr';
   const PLACE_PAGE_NAME = 'place_page_name';
   const PURCHASE_ROAS = 'purchase_roas';
+  const PURCHASES_PER_LINK_CLICK = 'purchases_per_link_click';
   const QUALIFYING_QUESTION_QUALIFY_ANSWER_RATE = 'qualifying_question_qualify_answer_rate';
   const QUALITY_RANKING = 'quality_ranking';
-  const QUALITY_SCORE_ECTR = 'quality_score_ectr';
-  const QUALITY_SCORE_ECVR = 'quality_score_ecvr';
-  const QUALITY_SCORE_ORGANIC = 'quality_score_organic';
   const REACH = 'reach';
+  const RESULT_VALUES_PERFORMANCE_INDICATOR = 'result_values_performance_indicator';
+  const SHOPS_ASSISTED_PURCHASES = 'shops_assisted_purchases';
   const SOCIAL_SPEND = 'social_spend';
   const SPEND = 'spend';
-  const STORE_VISIT_ACTIONS = 'store_visit_actions';
+  const TOTAL_POSTBACKS = 'total_postbacks';
+  const TOTAL_POSTBACKS_DETAILED = 'total_postbacks_detailed';
+  const TOTAL_POSTBACKS_DETAILED_V4 = 'total_postbacks_detailed_v4';
   const UNIQUE_ACTIONS = 'unique_actions';
   const UNIQUE_CLICKS = 'unique_clicks';
   const UNIQUE_CONVERSIONS = 'unique_conversions';
@@ -169,6 +179,7 @@ class AdsInsightsFields extends AbstractEnum {
   const VIDEO_PLAY_RETENTION_GRAPH_ACTIONS = 'video_play_retention_graph_actions';
   const VIDEO_THRUPLAY_WATCHED_ACTIONS = 'video_thruplay_watched_actions';
   const VIDEO_TIME_WATCHED_ACTIONS = 'video_time_watched_actions';
+  const VIDEO_VIEW_PER_IMPRESSION = 'video_view_per_impression';
   const WEBSITE_CTR = 'website_ctr';
   const WEBSITE_PURCHASE_ROAS = 'website_purchase_roas';
   const WISH_BID = 'wish_bid';
@@ -180,18 +191,10 @@ class AdsInsightsFields extends AbstractEnum {
       'account_name' => 'string',
       'action_values' => 'list<AdsActionStats>',
       'actions' => 'list<AdsActionStats>',
-      'ad_bid_type' => 'string',
-      'ad_bid_value' => 'string',
       'ad_click_actions' => 'list<AdsActionStats>',
-      'ad_delivery' => 'string',
       'ad_id' => 'string',
       'ad_impression_actions' => 'list<AdsActionStats>',
       'ad_name' => 'string',
-      'adset_bid_type' => 'string',
-      'adset_bid_value' => 'string',
-      'adset_budget_type' => 'string',
-      'adset_budget_value' => 'string',
-      'adset_delivery' => 'string',
       'adset_end' => 'string',
       'adset_id' => 'string',
       'adset_name' => 'string',
@@ -201,6 +204,7 @@ class AdsInsightsFields extends AbstractEnum {
       'auction_bid' => 'string',
       'auction_competitiveness' => 'string',
       'auction_max_competitor_bid' => 'string',
+      'average_purchases_conversion_value' => 'list<AdsActionStats>',
       'buying_type' => 'string',
       'campaign_id' => 'string',
       'campaign_name' => 'string',
@@ -212,23 +216,27 @@ class AdsInsightsFields extends AbstractEnum {
       'catalog_segment_value_omni_purchase_roas' => 'list<AdsActionStats>',
       'catalog_segment_value_website_purchase_roas' => 'list<AdsActionStats>',
       'clicks' => 'string',
+      'conversion_lead_rate' => 'list<AdsActionStats>',
+      'conversion_leads' => 'list<AdsActionStats>',
       'conversion_rate_ranking' => 'string',
       'conversion_values' => 'list<AdsActionStats>',
       'conversions' => 'list<AdsActionStats>',
       'converted_product_quantity' => 'list<AdsActionStats>',
       'converted_product_value' => 'list<AdsActionStats>',
+      'converted_promoted_product_quantity' => 'list<AdsActionStats>',
+      'converted_promoted_product_value' => 'list<AdsActionStats>',
       'cost_per_15_sec_video_view' => 'list<AdsActionStats>',
       'cost_per_2_sec_continuous_video_view' => 'list<AdsActionStats>',
       'cost_per_action_type' => 'list<AdsActionStats>',
       'cost_per_ad_click' => 'list<AdsActionStats>',
       'cost_per_conversion' => 'list<AdsActionStats>',
+      'cost_per_conversion_lead' => 'list<AdsActionStats>',
       'cost_per_dda_countby_convs' => 'string',
       'cost_per_estimated_ad_recallers' => 'string',
       'cost_per_inline_link_click' => 'string',
       'cost_per_inline_post_engagement' => 'string',
       'cost_per_one_thousand_ad_impression' => 'list<AdsActionStats>',
       'cost_per_outbound_click' => 'list<AdsActionStats>',
-      'cost_per_store_visit_action' => 'list<AdsActionStats>',
       'cost_per_thruplay' => 'list<AdsActionStats>',
       'cost_per_unique_action_type' => 'list<AdsActionStats>',
       'cost_per_unique_click' => 'string',
@@ -239,10 +247,12 @@ class AdsInsightsFields extends AbstractEnum {
       'cpm' => 'string',
       'cpp' => 'string',
       'created_time' => 'string',
+      'creative_media_type' => 'string',
       'ctr' => 'string',
       'date_start' => 'string',
       'date_stop' => 'string',
       'dda_countby_convs' => 'string',
+      'dda_results' => 'list<Object>',
       'engagement_rate_ranking' => 'string',
       'estimated_ad_recall_rate' => 'string',
       'estimated_ad_recall_rate_lower_bound' => 'string',
@@ -258,27 +268,53 @@ class AdsInsightsFields extends AbstractEnum {
       'inline_link_click_ctr' => 'string',
       'inline_link_clicks' => 'string',
       'inline_post_engagement' => 'string',
+      'instagram_upcoming_event_reminders_set' => 'string',
       'instant_experience_clicks_to_open' => 'string',
       'instant_experience_clicks_to_start' => 'string',
-      'instant_experience_outbound_clicks' => 'string',
+      'instant_experience_outbound_clicks' => 'list<AdsActionStats>',
       'interactive_component_tap' => 'list<AdsActionStats>',
       'labels' => 'string',
+      'landing_page_view_actions_per_link_click' => 'string',
+      'landing_page_view_per_purchase_rate' => 'string',
       'location' => 'string',
+      'marketing_messages_cost_per_delivered' => 'string',
+      'marketing_messages_cost_per_link_btn_click' => 'string',
+      'marketing_messages_delivered' => 'string',
+      'marketing_messages_delivery_rate' => 'string',
+      'marketing_messages_link_btn_click' => 'string',
+      'marketing_messages_link_btn_click_rate' => 'string',
+      'marketing_messages_media_view_rate' => 'string',
+      'marketing_messages_phone_call_btn_click_rate' => 'string',
+      'marketing_messages_quick_reply_btn_click' => 'string',
+      'marketing_messages_quick_reply_btn_click_rate' => 'string',
+      'marketing_messages_read' => 'string',
+      'marketing_messages_read_rate' => 'string',
+      'marketing_messages_sent' => 'string',
+      'marketing_messages_spend' => 'string',
+      'marketing_messages_spend_currency' => 'string',
+      'marketing_messages_website_add_to_cart' => 'string',
+      'marketing_messages_website_initiate_checkout' => 'string',
+      'marketing_messages_website_purchase' => 'string',
+      'marketing_messages_website_purchase_values' => 'string',
       'mobile_app_purchase_roas' => 'list<AdsActionStats>',
       'objective' => 'string',
+      'onsite_conversion_messaging_detected_purchase_deduped' => 'list<AdsActionStats>',
+      'optimization_goal' => 'string',
       'outbound_clicks' => 'list<AdsActionStats>',
       'outbound_clicks_ctr' => 'list<AdsActionStats>',
       'place_page_name' => 'string',
       'purchase_roas' => 'list<AdsActionStats>',
+      'purchases_per_link_click' => 'string',
       'qualifying_question_qualify_answer_rate' => 'string',
       'quality_ranking' => 'string',
-      'quality_score_ectr' => 'string',
-      'quality_score_ecvr' => 'string',
-      'quality_score_organic' => 'string',
       'reach' => 'string',
+      'result_values_performance_indicator' => 'string',
+      'shops_assisted_purchases' => 'string',
       'social_spend' => 'string',
       'spend' => 'string',
-      'store_visit_actions' => 'list<AdsActionStats>',
+      'total_postbacks' => 'string',
+      'total_postbacks_detailed' => 'list<AdsActionStats>',
+      'total_postbacks_detailed_v4' => 'list<AdsActionStats>',
       'unique_actions' => 'list<AdsActionStats>',
       'unique_clicks' => 'string',
       'unique_conversions' => 'list<AdsActionStats>',
@@ -301,12 +337,13 @@ class AdsInsightsFields extends AbstractEnum {
       'video_p75_watched_actions' => 'list<AdsActionStats>',
       'video_p95_watched_actions' => 'list<AdsActionStats>',
       'video_play_actions' => 'list<AdsActionStats>',
-      'video_play_curve_actions' => 'list<Object>',
-      'video_play_retention_0_to_15s_actions' => 'list<Object>',
-      'video_play_retention_20_to_60s_actions' => 'list<Object>',
-      'video_play_retention_graph_actions' => 'list<Object>',
+      'video_play_curve_actions' => 'list<AdsHistogramStats>',
+      'video_play_retention_0_to_15s_actions' => 'list<AdsHistogramStats>',
+      'video_play_retention_20_to_60s_actions' => 'list<AdsHistogramStats>',
+      'video_play_retention_graph_actions' => 'list<AdsHistogramStats>',
       'video_thruplay_watched_actions' => 'list<AdsActionStats>',
       'video_time_watched_actions' => 'list<AdsActionStats>',
+      'video_view_per_impression' => 'list<AdsActionStats>',
       'website_ctr' => 'list<AdsActionStats>',
       'website_purchase_roas' => 'list<AdsActionStats>',
       'wish_bid' => 'string',

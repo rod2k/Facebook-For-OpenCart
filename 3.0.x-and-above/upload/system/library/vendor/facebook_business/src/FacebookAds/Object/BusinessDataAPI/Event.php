@@ -36,7 +36,7 @@ class Event {
    * Constructor
    * @param mixed[] $data Associated array of property value initalizing the model
    */
-  public function __construct(array $data = null) {
+  public function __construct(?array $data = null) {
     $this->container['event_name'] = isset($data['event_name']) ? $data['event_name'] : null;
     $this->container['event_time'] = isset($data['event_time']) ? $data['event_time'] : null;
     $this->container['event_id'] = isset($data['event_id']) ? $data['event_id'] : null;
@@ -81,7 +81,7 @@ class Event {
 
   /**
    * Sets UserData object that contains user data.
-   * @param FacebookAds\Object\BusinessDataAPI\UserData $user_data
+   * @param \FacebookAds\Object\BusinessDataAPI\UserData $user_data
    * @return $this
    */
   public function setUserData($user_data) {
@@ -92,7 +92,7 @@ class Event {
 
   /**
    * Sets CustomData object that includes additional business data about the event.
-   * @param FacebookAds\Object\BusinessDataAPI\CustomData $custom_data
+   * @param \FacebookAds\Object\BusinessDataAPI\CustomData $custom_data
    * @return $this
    */
   public function setCustomData($custom_data) {
@@ -159,7 +159,7 @@ class Event {
         if(is_array($val)) {
           return true;
         } else {
-          return strlen($val);
+          return strlen((string) $val);
         }
       });
 
