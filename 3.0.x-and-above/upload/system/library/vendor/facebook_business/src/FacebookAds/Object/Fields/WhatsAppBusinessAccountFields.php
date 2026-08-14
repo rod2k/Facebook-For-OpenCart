@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Fields;
@@ -37,13 +22,25 @@ use FacebookAds\Enum\AbstractEnum;
 
 class WhatsAppBusinessAccountFields extends AbstractEnum {
 
+  const ACCOUNT_REVIEW_STATUS = 'account_review_status';
   const ANALYTICS = 'analytics';
+  const AUTH_INTERNATIONAL_RATE_ELIGIBILITY = 'auth_international_rate_eligibility';
+  const BUSINESS_VERIFICATION_STATUS = 'business_verification_status';
+  const COUNTRY = 'country';
+  const CREATION_TIME = 'creation_time';
   const CURRENCY = 'currency';
+  const HEALTH_STATUS = 'health_status';
   const ID = 'id';
+  const IS_ENABLED_FOR_INSIGHTS = 'is_enabled_for_insights';
+  const LINKED_COMMERCE_ACCOUNT = 'linked_commerce_account';
+  const MARKETING_MESSAGES_LITE_API_STATUS = 'marketing_messages_lite_api_status';
   const MESSAGE_TEMPLATE_NAMESPACE = 'message_template_namespace';
   const NAME = 'name';
   const ON_BEHALF_OF_BUSINESS_INFO = 'on_behalf_of_business_info';
+  const OWNER_BUSINESS = 'owner_business';
   const OWNER_BUSINESS_INFO = 'owner_business_info';
+  const OWNERSHIP_TYPE = 'ownership_type';
+  const PRIMARY_BUSINESS_LOCATION = 'primary_business_location';
   const PRIMARY_FUNDING_ID = 'primary_funding_id';
   const PURCHASE_ORDER_NUMBER = 'purchase_order_number';
   const STATUS = 'status';
@@ -51,13 +48,25 @@ class WhatsAppBusinessAccountFields extends AbstractEnum {
 
   public function getFieldTypes() {
     return array(
+      'account_review_status' => 'string',
       'analytics' => 'Object',
+      'auth_international_rate_eligibility' => 'Object',
+      'business_verification_status' => 'BusinessVerificationStatus',
+      'country' => 'string',
+      'creation_time' => 'int',
       'currency' => 'string',
+      'health_status' => 'WhatsAppBusinessHealthStatusForMessageSend',
       'id' => 'string',
+      'is_enabled_for_insights' => 'bool',
+      'linked_commerce_account' => 'CommerceMerchantSettings',
+      'marketing_messages_lite_api_status' => 'string',
       'message_template_namespace' => 'string',
       'name' => 'string',
       'on_behalf_of_business_info' => 'Object',
+      'owner_business' => 'Business',
       'owner_business_info' => 'Object',
+      'ownership_type' => 'string',
+      'primary_business_location' => 'string',
       'primary_funding_id' => 'string',
       'purchase_order_number' => 'string',
       'status' => 'string',

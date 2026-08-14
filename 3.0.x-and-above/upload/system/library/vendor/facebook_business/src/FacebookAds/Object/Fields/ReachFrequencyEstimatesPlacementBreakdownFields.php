@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Fields;
@@ -40,9 +25,13 @@ class ReachFrequencyEstimatesPlacementBreakdownFields extends AbstractEnum {
   const ANDROID = 'android';
   const AUDIENCE_NETWORK = 'audience_network';
   const DESKTOP = 'desktop';
+  const FACEBOOK_SEARCH = 'facebook_search';
+  const FB_REELS = 'fb_reels';
+  const FB_REELS_OVERLAY = 'fb_reels_overlay';
   const IG_ANDROID = 'ig_android';
   const IG_IOS = 'ig_ios';
   const IG_OTHER = 'ig_other';
+  const IG_REELS = 'ig_reels';
   const IG_STORY = 'ig_story';
   const INSTANT_ARTICLES = 'instant_articles';
   const INSTREAM_VIDEOS = 'instream_videos';
@@ -55,9 +44,13 @@ class ReachFrequencyEstimatesPlacementBreakdownFields extends AbstractEnum {
       'android' => 'list<float>',
       'audience_network' => 'list<float>',
       'desktop' => 'list<float>',
+      'facebook_search' => 'list<float>',
+      'fb_reels' => 'list<float>',
+      'fb_reels_overlay' => 'list<float>',
       'ig_android' => 'list<float>',
       'ig_ios' => 'list<float>',
       'ig_other' => 'list<float>',
+      'ig_reels' => 'list<float>',
       'ig_story' => 'list<float>',
       'instant_articles' => 'list<float>',
       'instream_videos' => 'list<float>',

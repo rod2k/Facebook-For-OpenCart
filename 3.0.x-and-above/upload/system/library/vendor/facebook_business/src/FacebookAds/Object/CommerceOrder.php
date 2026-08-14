@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object;
@@ -53,9 +38,9 @@ class CommerceOrder extends AbstractCrudObject {
 
   protected static function getReferencedEnums() {
     $ref_enums = array();
-    $ref_enums['ReasonCode'] = CommerceOrderReasonCodeValues::getInstance()->getValues();
     $ref_enums['Filters'] = CommerceOrderFiltersValues::getInstance()->getValues();
     $ref_enums['State'] = CommerceOrderStateValues::getInstance()->getValues();
+    $ref_enums['ReasonCode'] = CommerceOrderReasonCodeValues::getInstance()->getValues();
     return $ref_enums;
   }
 
@@ -66,7 +51,6 @@ class CommerceOrder extends AbstractCrudObject {
     $param_types = array(
       'idempotency_key' => 'string',
       'merchant_order_reference' => 'string',
-      'return_error_response' => 'bool',
     );
     $enums = array(
     );
@@ -126,6 +110,31 @@ class CommerceOrder extends AbstractCrudObject {
       $this->data['id'],
       RequestInterface::METHOD_POST,
       '/cancellations',
+      new CommerceOrder(),
+      'EDGE',
+      CommerceOrder::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
+  public function createItemUpdate(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'items' => 'list<map>',
+      'merchant_order_reference' => 'string',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/item_updates',
       new CommerceOrder(),
       'EDGE',
       CommerceOrder::getFieldsEnum()->getValues(),
@@ -205,7 +214,7 @@ class CommerceOrder extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
-  public function getPromotions(array $fields = array(), array $params = array(), $pending = false) {
+  public function getPromoTIOns(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
     $param_types = array(
@@ -255,6 +264,7 @@ class CommerceOrder extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'adjustment_amount' => 'map',
       'deductions' => 'list<map>',
       'idempotency_key' => 'string',
       'items' => 'list<map>',
@@ -314,6 +324,33 @@ class CommerceOrder extends AbstractCrudObject {
     return $pending ? $request : $request->execute();
   }
 
+  public function createReturn(array $fields = array(), array $params = array(), $pending = false) {
+    $this->assureId();
+
+    $param_types = array(
+      'items' => 'list<map>',
+      'merchant_return_id' => 'string',
+      'return_message' => 'string',
+      'update' => 'map',
+    );
+    $enums = array(
+    );
+
+    $request = new ApiRequest(
+      $this->api,
+      $this->data['id'],
+      RequestInterface::METHOD_POST,
+      '/returns',
+      new CommerceOrder(),
+      'EDGE',
+      CommerceOrder::getFieldsEnum()->getValues(),
+      new TypeChecker($param_types, $enums)
+    );
+    $request->addParams($params);
+    $request->addFields($fields);
+    return $pending ? $request : $request->execute();
+  }
+
   public function getShipments(array $fields = array(), array $params = array(), $pending = false) {
     $this->assureId();
 
@@ -349,6 +386,7 @@ class CommerceOrder extends AbstractCrudObject {
       'merchant_order_reference' => 'string',
       'shipment_origin_postal_code' => 'string',
       'shipping_tax_details' => 'map',
+      'should_use_default_fulfillment_location' => 'bool',
       'tracking_info' => 'map',
     );
     $enums = array(
@@ -373,8 +411,10 @@ class CommerceOrder extends AbstractCrudObject {
     $this->assureId();
 
     $param_types = array(
+      'external_shipment_id' => 'string',
       'fulfillment_id' => 'string',
       'idempotency_key' => 'string',
+      'shipment_id' => 'string',
       'tracking_info' => 'map',
     );
     $enums = array(

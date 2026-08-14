@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Values;
@@ -41,6 +26,7 @@ class BusinessAssetGroupPageTasksValues extends AbstractEnum {
   const ANALYZE = 'ANALYZE';
   const CASHIER_ROLE = 'CASHIER_ROLE';
   const CREATE_CONTENT = 'CREATE_CONTENT';
+  const GLOBAL_STRUCTURE_MANAGEMENT = 'GLOBAL_STRUCTURE_MANAGEMENT';
   const MANAGE = 'MANAGE';
   const MANAGE_JOBS = 'MANAGE_JOBS';
   const MANAGE_LEADS = 'MANAGE_LEADS';
@@ -52,9 +38,14 @@ class BusinessAssetGroupPageTasksValues extends AbstractEnum {
   const PROFILE_PLUS_ADVERTISE = 'PROFILE_PLUS_ADVERTISE';
   const PROFILE_PLUS_ANALYZE = 'PROFILE_PLUS_ANALYZE';
   const PROFILE_PLUS_CREATE_CONTENT = 'PROFILE_PLUS_CREATE_CONTENT';
+  const PROFILE_PLUS_FACEBOOK_ACCESS = 'PROFILE_PLUS_FACEBOOK_ACCESS';
+  const PROFILE_PLUS_FULL_CONTROL = 'PROFILE_PLUS_FULL_CONTROL';
   const PROFILE_PLUS_MANAGE = 'PROFILE_PLUS_MANAGE';
+  const PROFILE_PLUS_MANAGE_LEADS = 'PROFILE_PLUS_MANAGE_LEADS';
   const PROFILE_PLUS_MESSAGING = 'PROFILE_PLUS_MESSAGING';
   const PROFILE_PLUS_MODERATE = 'PROFILE_PLUS_MODERATE';
+  const PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY = 'PROFILE_PLUS_MODERATE_DELEGATE_COMMUNITY';
+  const PROFILE_PLUS_REVENUE = 'PROFILE_PLUS_REVENUE';
   const READ_PAGE_MAILBOXES = 'READ_PAGE_MAILBOXES';
   const VIEW_MONETIZATION_INSIGHTS = 'VIEW_MONETIZATION_INSIGHTS';
 }

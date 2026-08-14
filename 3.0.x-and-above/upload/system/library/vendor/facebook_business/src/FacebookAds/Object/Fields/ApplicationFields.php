@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Fields;
@@ -62,6 +47,9 @@ class ApplicationFields extends AbstractEnum {
   const AUTO_EVENT_MAPPING_ANDROID = 'auto_event_mapping_android';
   const AUTO_EVENT_MAPPING_IOS = 'auto_event_mapping_ios';
   const AUTO_EVENT_SETUP_ENABLED = 'auto_event_setup_enabled';
+  const AUTO_LOG_APP_EVENTS_DEFAULT = 'auto_log_app_events_default';
+  const AUTO_LOG_APP_EVENTS_ENABLED = 'auto_log_app_events_enabled';
+  const BUSINESS = 'business';
   const CANVAS_FLUID_HEIGHT = 'canvas_fluid_height';
   const CANVAS_FLUID_WIDTH = 'canvas_fluid_width';
   const CANVAS_URL = 'canvas_url';
@@ -77,6 +65,7 @@ class ApplicationFields extends AbstractEnum {
   const DEAUTH_CALLBACK_URL = 'deauth_callback_url';
   const DEFAULT_SHARE_MODE = 'default_share_mode';
   const DESCRIPTION = 'description';
+  const ENIGMA_CONFIG = 'enigma_config';
   const FINANCIAL_ID = 'financial_id';
   const GDPV4_CHROME_CUSTOM_TABS_ENABLED = 'gdpv4_chrome_custom_tabs_enabled';
   const GDPV4_ENABLED = 'gdpv4_enabled';
@@ -97,7 +86,6 @@ class ApplicationFields extends AbstractEnum {
   const LATEST_SDK_VERSION = 'latest_sdk_version';
   const LINK = 'link';
   const LOGGING_TOKEN = 'logging_token';
-  const LOGIN_SECRET = 'login_secret';
   const LOGO_URL = 'logo_url';
   const MIGRATIONS = 'migrations';
   const MOBILE_PROFILE_SECTION_URL = 'mobile_profile_section_url';
@@ -107,12 +95,14 @@ class ApplicationFields extends AbstractEnum {
   const NAME = 'name';
   const NAMESPACE = 'namespace';
   const OBJECT_STORE_URLS = 'object_store_urls';
+  const OWNER_BUSINESS = 'owner_business';
   const PAGE_TAB_DEFAULT_NAME = 'page_tab_default_name';
   const PAGE_TAB_URL = 'page_tab_url';
   const PHOTO_URL = 'photo_url';
   const PRIVACY_POLICY_URL = 'privacy_policy_url';
   const PROFILE_SECTION_URL = 'profile_section_url';
   const PROPERTY_ID = 'property_id';
+  const PROTECTED_MODE_RULES = 'protected_mode_rules';
   const REAL_TIME_MODE_DEVICES = 'real_time_mode_devices';
   const RESTRICTIONS = 'restrictions';
   const RESTRICTIVE_DATA_FILTER_PARAMS = 'restrictive_data_filter_params';
@@ -166,6 +156,9 @@ class ApplicationFields extends AbstractEnum {
       'auto_event_mapping_android' => 'list<Object>',
       'auto_event_mapping_ios' => 'list<Object>',
       'auto_event_setup_enabled' => 'bool',
+      'auto_log_app_events_default' => 'bool',
+      'auto_log_app_events_enabled' => 'bool',
+      'business' => 'Business',
       'canvas_fluid_height' => 'bool',
       'canvas_fluid_width' => 'unsigned int',
       'canvas_url' => 'string',
@@ -181,6 +174,7 @@ class ApplicationFields extends AbstractEnum {
       'deauth_callback_url' => 'string',
       'default_share_mode' => 'string',
       'description' => 'string',
+      'enigma_config' => 'Object',
       'financial_id' => 'string',
       'gdpv4_chrome_custom_tabs_enabled' => 'bool',
       'gdpv4_enabled' => 'bool',
@@ -201,7 +195,6 @@ class ApplicationFields extends AbstractEnum {
       'latest_sdk_version' => 'Object',
       'link' => 'string',
       'logging_token' => 'string',
-      'login_secret' => 'string',
       'logo_url' => 'string',
       'migrations' => 'map<string, bool>',
       'mobile_profile_section_url' => 'string',
@@ -211,12 +204,14 @@ class ApplicationFields extends AbstractEnum {
       'name' => 'string',
       'namespace' => 'string',
       'object_store_urls' => 'Object',
+      'owner_business' => 'Business',
       'page_tab_default_name' => 'string',
       'page_tab_url' => 'string',
       'photo_url' => 'string',
       'privacy_policy_url' => 'string',
       'profile_section_url' => 'string',
       'property_id' => 'string',
+      'protected_mode_rules' => 'Object',
       'real_time_mode_devices' => 'list<string>',
       'restrictions' => 'Object',
       'restrictive_data_filter_params' => 'string',

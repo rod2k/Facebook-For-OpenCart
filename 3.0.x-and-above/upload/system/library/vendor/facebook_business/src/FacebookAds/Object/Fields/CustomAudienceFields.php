@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Fields;
@@ -38,11 +23,13 @@ use FacebookAds\Enum\AbstractEnum;
 class CustomAudienceFields extends AbstractEnum {
 
   const ACCOUNT_ID = 'account_id';
-  const APPROXIMATE_COUNT = 'approximate_count';
+  const APPROXIMATE_COUNT_LOWER_BOUND = 'approximate_count_lower_bound';
+  const APPROXIMATE_COUNT_UPPER_BOUND = 'approximate_count_upper_bound';
   const CUSTOMER_FILE_SOURCE = 'customer_file_source';
   const DATA_SOURCE = 'data_source';
   const DATA_SOURCE_TYPES = 'data_source_types';
   const DATAFILE_CUSTOM_AUDIENCE_UPLOADING_STATUS = 'datafile_custom_audience_uploading_status';
+  const DELETE_TIME = 'delete_time';
   const DELIVERY_STATUS = 'delivery_status';
   const DESCRIPTION = 'description';
   const EXCLUDED_CUSTOM_AUDIENCES = 'excluded_custom_audiences';
@@ -50,6 +37,7 @@ class CustomAudienceFields extends AbstractEnum {
   const HOUSEHOLD_AUDIENCE = 'household_audience';
   const ID = 'id';
   const INCLUDED_CUSTOM_AUDIENCES = 'included_custom_audiences';
+  const IS_ELIGIBLE_FOR_SAC_CAMPAIGNS = 'is_eligible_for_sac_campaigns';
   const IS_HOUSEHOLD = 'is_household';
   const IS_SNAPSHOT = 'is_snapshot';
   const IS_VALUE_BASED = 'is_value_based';
@@ -58,6 +46,8 @@ class CustomAudienceFields extends AbstractEnum {
   const NAME = 'name';
   const OPERATION_STATUS = 'operation_status';
   const OPT_OUT_LINK = 'opt_out_link';
+  const OWNER_BUSINESS = 'owner_business';
+  const PAGE_DELETION_MARKED_DELETE_TIME = 'page_deletion_marked_delete_time';
   const PERMISSION_FOR_ACTIONS = 'permission_for_actions';
   const PIXEL_ID = 'pixel_id';
   const REGULATED_AUDIENCE_SPEC = 'regulated_audience_spec';
@@ -83,25 +73,31 @@ class CustomAudienceFields extends AbstractEnum {
   const EVENT_SOURCE_GROUP = 'event_source_group';
   const EVENT_SOURCES = 'event_sources';
   const EXCLUSIONS = 'exclusions';
+  const FACEBOOK_PAGE_ID = 'facebook_page_id';
   const INCLUSIONS = 'inclusions';
-  const IS_HOUSEHOLD_EXCLUSION = 'is_household_exclusion';
   const LIST_OF_ACCOUNTS = 'list_of_accounts';
+  const MARKETING_MESSAGE_CHANNELS = 'marketing_message_channels';
   const ORIGIN_AUDIENCE_ID = 'origin_audience_id';
   const PARENT_AUDIENCE_ID = 'parent_audience_id';
   const PARTNER_REFERENCE_KEY = 'partner_reference_key';
   const PREFILL = 'prefill';
   const PRODUCT_SET_ID = 'product_set_id';
-  const TAGS = 'tags';
+  const SUBSCRIPTION_INFO = 'subscription_info';
+  const USE_FOR_PRODUCTS = 'use_for_products';
+  const USE_IN_CAMPAIGNS = 'use_in_campaigns';
   const VIDEO_GROUP_IDS = 'video_group_ids';
+  const WHATS_APP_BUSINESS_PHONE_NUMBER_ID = 'whats_app_business_phone_number_id';
 
   public function getFieldTypes() {
     return array(
       'account_id' => 'string',
-      'approximate_count' => 'int',
+      'approximate_count_lower_bound' => 'int',
+      'approximate_count_upper_bound' => 'int',
       'customer_file_source' => 'string',
       'data_source' => 'CustomAudienceDataSource',
       'data_source_types' => 'string',
       'datafile_custom_audience_uploading_status' => 'string',
+      'delete_time' => 'int',
       'delivery_status' => 'CustomAudienceStatus',
       'description' => 'string',
       'excluded_custom_audiences' => 'list<CustomAudience>',
@@ -109,6 +105,7 @@ class CustomAudienceFields extends AbstractEnum {
       'household_audience' => 'int',
       'id' => 'string',
       'included_custom_audiences' => 'list<CustomAudience>',
+      'is_eligible_for_sac_campaigns' => 'bool',
       'is_household' => 'bool',
       'is_snapshot' => 'bool',
       'is_value_based' => 'bool',
@@ -117,6 +114,8 @@ class CustomAudienceFields extends AbstractEnum {
       'name' => 'string',
       'operation_status' => 'CustomAudienceStatus',
       'opt_out_link' => 'string',
+      'owner_business' => 'Business',
+      'page_deletion_marked_delete_time' => 'int',
       'permission_for_actions' => 'AudiencePermissionForActions',
       'pixel_id' => 'string',
       'regulated_audience_spec' => 'LookalikeSpec',
@@ -142,16 +141,20 @@ class CustomAudienceFields extends AbstractEnum {
       'event_source_group' => 'string',
       'event_sources' => 'list<map>',
       'exclusions' => 'list<Object>',
+      'facebook_page_id' => 'string',
       'inclusions' => 'list<Object>',
-      'is_household_exclusion' => 'bool',
       'list_of_accounts' => 'list<unsigned int>',
+      'marketing_message_channels' => 'Object',
       'origin_audience_id' => 'string',
       'parent_audience_id' => 'unsigned int',
       'partner_reference_key' => 'string',
       'prefill' => 'bool',
       'product_set_id' => 'string',
-      'tags' => 'list<string>',
+      'subscription_info' => 'list<SubscriptionInfo>',
+      'use_for_products' => 'list<UseForProducts>',
+      'use_in_campaigns' => 'bool',
       'video_group_ids' => 'list<string>',
+      'whats_app_business_phone_number_id' => 'string',
     );
   }
 }

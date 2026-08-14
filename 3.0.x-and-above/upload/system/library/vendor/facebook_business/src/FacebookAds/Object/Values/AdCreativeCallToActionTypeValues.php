@@ -1,25 +1,10 @@
 <?php
-/**
- * Copyright (c) 2015-present, Facebook, Inc. All rights reserved.
+ /*
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ * All rights reserved.
  *
- * You are hereby granted a non-exclusive, worldwide, royalty-free license to
- * use, copy, modify, and distribute this software in source code or binary
- * form for use in connection with the web services and APIs provided by
- * Facebook.
- *
- * As with any software that integrates with the Facebook platform, your use
- * of this software is subject to the Facebook Developer Principles and
- * Policies [http://developers.facebook.com/policy/]. This copyright notice
- * shall be included in all copies or substantial portions of the software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
- * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
- * DEALINGS IN THE SOFTWARE.
- *
+ * This source code is licensed under the license found in the
+ * LICENSE file in the root directory of this source tree.
  */
 
 namespace FacebookAds\Object\Values;
@@ -39,12 +24,21 @@ class AdCreativeCallToActionTypeValues extends AbstractEnum {
 
   const ADD_TO_CART = 'ADD_TO_CART';
   const APPLY_NOW = 'APPLY_NOW';
+  const ASK_ABOUT_SERVICES = 'ASK_ABOUT_SERVICES';
+  const ASK_FOR_MORE_INFO = 'ASK_FOR_MORE_INFO';
+  const AUDIO_CALL = 'AUDIO_CALL';
+  const BOOK_A_CONSULTATION = 'BOOK_A_CONSULTATION';
+  const BOOK_NOW = 'BOOK_NOW';
   const BOOK_TRAVEL = 'BOOK_TRAVEL';
   const BUY = 'BUY';
   const BUY_NOW = 'BUY_NOW';
   const BUY_TICKETS = 'BUY_TICKETS';
+  const BUY_VIA_MESSAGE = 'BUY_VIA_MESSAGE';
   const CALL = 'CALL';
   const CALL_ME = 'CALL_ME';
+  const CALL_NOW = 'CALL_NOW';
+  const CHAT_WITH_US = 'CHAT_WITH_US';
+  const CONFIRM = 'CONFIRM';
   const CONTACT = 'CONTACT';
   const CONTACT_US = 'CONTACT_US';
   const DONATE = 'DONATE';
@@ -56,26 +50,35 @@ class AdCreativeCallToActionTypeValues extends AbstractEnum {
   const FOLLOW_NEWS_STORYLINE = 'FOLLOW_NEWS_STORYLINE';
   const FOLLOW_PAGE = 'FOLLOW_PAGE';
   const FOLLOW_USER = 'FOLLOW_USER';
+  const GET_A_QUOTE = 'GET_A_QUOTE';
   const GET_DIRECTIONS = 'GET_DIRECTIONS';
+  const GET_IN_TOUCH = 'GET_IN_TOUCH';
   const GET_OFFER = 'GET_OFFER';
   const GET_OFFER_VIEW = 'GET_OFFER_VIEW';
+  const GET_PROMOTIONS = 'GET_PROMOTIONS';
   const GET_QUOTE = 'GET_QUOTE';
   const GET_SHOWTIMES = 'GET_SHOWTIMES';
+  const GET_STARTED = 'GET_STARTED';
+  const INQUIRE_NOW = 'INQUIRE_NOW';
   const INSTALL_APP = 'INSTALL_APP';
   const INSTALL_MOBILE_APP = 'INSTALL_MOBILE_APP';
+  const JOIN_CHANNEL = 'JOIN_CHANNEL';
   const LEARN_MORE = 'LEARN_MORE';
   const LIKE_PAGE = 'LIKE_PAGE';
   const LISTEN_MUSIC = 'LISTEN_MUSIC';
   const LISTEN_NOW = 'LISTEN_NOW';
+  const MAKE_AN_APPOINTMENT = 'MAKE_AN_APPOINTMENT';
   const MESSAGE_PAGE = 'MESSAGE_PAGE';
   const MOBILE_DOWNLOAD = 'MOBILE_DOWNLOAD';
-  const MOMENTS = 'MOMENTS';
   const NO_BUTTON = 'NO_BUTTON';
+  const OPEN_INSTANT_APP = 'OPEN_INSTANT_APP';
   const OPEN_LINK = 'OPEN_LINK';
   const ORDER_NOW = 'ORDER_NOW';
   const PAY_TO_ACCESS = 'PAY_TO_ACCESS';
   const PLAY_GAME = 'PLAY_GAME';
+  const PLAY_GAME_ON_FACEBOOK = 'PLAY_GAME_ON_FACEBOOK';
   const PURCHASE_GIFT_CARDS = 'PURCHASE_GIFT_CARDS';
+  const RAISE_MONEY = 'RAISE_MONEY';
   const RECORD_NOW = 'RECORD_NOW';
   const REFER_FRIENDS = 'REFER_FRIENDS';
   const REQUEST_TIME = 'REQUEST_TIME';
@@ -84,6 +87,7 @@ class AdCreativeCallToActionTypeValues extends AbstractEnum {
   const SELL_NOW = 'SELL_NOW';
   const SEND_A_GIFT = 'SEND_A_GIFT';
   const SEND_GIFT_MONEY = 'SEND_GIFT_MONEY';
+  const SEND_UPDATES = 'SEND_UPDATES';
   const SHARE = 'SHARE';
   const SHOP_NOW = 'SHOP_NOW';
   const SIGN_UP = 'SIGN_UP';
@@ -97,7 +101,11 @@ class AdCreativeCallToActionTypeValues extends AbstractEnum {
   const USE_MOBILE_APP = 'USE_MOBILE_APP';
   const VIDEO_ANNOTATION = 'VIDEO_ANNOTATION';
   const VIDEO_CALL = 'VIDEO_CALL';
+  const VIEW_CART = 'VIEW_CART';
+  const VIEW_CHANNEL = 'VIEW_CHANNEL';
+  const VIEW_PRODUCT = 'VIEW_PRODUCT';
   const VISIT_PAGES_FEED = 'VISIT_PAGES_FEED';
+  const WATCH_LIVE_VIDEO = 'WATCH_LIVE_VIDEO';
   const WATCH_MORE = 'WATCH_MORE';
   const WATCH_VIDEO = 'WATCH_VIDEO';
   const WHATSAPP_MESSAGE = 'WHATSAPP_MESSAGE';
