@@ -78,7 +78,7 @@ class Cursor implements \Iterator, \Countable, \arrayaccess {
   public function __construct(
     ResponseInterface $response,
     AbstractObject $object_prototype,
-    Api $api = null) {
+    ?Api $api = null) {
     $this->response = $response;
     $this->objectPrototype = $object_prototype;
     $this->api = $api !== null ? $api : Api::instance();

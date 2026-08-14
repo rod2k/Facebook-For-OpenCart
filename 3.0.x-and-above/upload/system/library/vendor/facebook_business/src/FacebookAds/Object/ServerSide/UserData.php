@@ -168,7 +168,7 @@ class UserData implements ArrayAccess {
    * Constructor
    * @param mixed[] $data Associated array of property value initalizing the model
    */
-  public function __construct(array $data = null) {
+  public function __construct(?array $data = null) {
     $this->container['email'] = isset($data['email']) ? $data['email'] : null;
     $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
     $this->container['gender'] = isset($data['gender']) ? $data['gender'] : null;
