@@ -601,6 +601,21 @@ class ModelExtensionModuleFacebookBusiness extends Model {
                     'event_id'      => $event_id
                 );
 
+                // Capture PII for InitiateCheckout
+                $facebook_pixel_pii = array();
+                if ($this->customer->isLogged()) {
+                    $facebook_pixel_pii['em'] = $this->customer->getEmail();
+                    $facebook_pixel_pii['fn'] = $this->customer->getFirstName();
+                    $facebook_pixel_pii['ln'] = $this->customer->getLastName();
+                    $facebook_pixel_pii['ph'] = $this->customer->getTelephone();
+                    $facebook_pixel_pii['external_id'] = (string)$this->customer->getId();
+                } elseif (isset($this->session->data['guest'])) {
+                    $facebook_pixel_pii['em'] = $this->session->data['guest']['email'] ?? '';
+                    $facebook_pixel_pii['fn'] = $this->session->data['guest']['firstname'] ?? '';
+                    $facebook_pixel_pii['ln'] = $this->session->data['guest']['lastname'] ?? '';
+                    $facebook_pixel_pii['ph'] = $this->session->data['guest']['telephone'] ?? '';
+                }
+
                 break;
     
             case 'product/search':
@@ -934,7 +949,11 @@ class ModelExtensionModuleFacebookBusiness extends Model {
             $facebook_pixel_event_params['value'] = (float)$facebook_pixel_event_params['value'];
         }
 
-        $this->trackPixel($facebook_pixel_event_params, $event_name, $event_id, isset($facebook_pixel_pii) ? $facebook_pixel_pii : null);
+        $pii_to_send = $this->getPii();
+        if (isset($facebook_pixel_pii) && $facebook_pixel_pii) {
+            $pii_to_send = array_merge($pii_to_send, $facebook_pixel_pii);
+        }
+        $this->trackPixel($facebook_pixel_event_params, $event_name, $event_id, $pii_to_send);
 
         if ($facebook_pixel_event_params) {
             return addslashes(json_encode($facebook_pixel_event_params));
@@ -1065,9 +1084,12 @@ class ModelExtensionModuleFacebookBusiness extends Model {
                 setcookie('_fbp', $_COOKIE['_fbp'], time() + 15552000, '/', '', !empty($_SERVER['HTTPS']), true);
             }
 
-            if (empty($_COOKIE['_fbc']) && !empty($this->request->get['fbclid'])) {
-                $_COOKIE['_fbc'] = 'fb.1.' . time() . '.' . $this->request->get['fbclid'];
-                setcookie('_fbc', $_COOKIE['_fbc'], time() + 15552000, '/', '', !empty($_SERVER['HTTPS']), true);
+            if (empty($_COOKIE['_fbc'])) {
+                $fbclid = !empty($this->request->get['fbclid']) ? $this->request->get['fbclid'] : (!empty($this->session->data['fbclid']) ? $this->session->data['fbclid'] : '');
+                if (!empty($fbclid)) {
+                    $_COOKIE['_fbc'] = 'fb.1.' . time() . '.' . $fbclid;
+                    setcookie('_fbc', $_COOKIE['_fbc'], time() + 15552000, '/', '', !empty($_SERVER['HTTPS']), true);
+                }
             }
 
             $client_ips = explode(',', Util::getIpAddress());

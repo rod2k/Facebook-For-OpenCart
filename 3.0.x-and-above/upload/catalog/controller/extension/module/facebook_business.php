@@ -221,9 +221,9 @@ class ControllerExtensionModuleFacebookBusiness extends Controller {
         if (!headers_sent()) {
             header('Content-Type: text/csv; charset=utf-8');
             header('Content-Disposition: attachment; filename="'.basename($filename.'"'));
-            header('Expires: 0');
-            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-            header('Pragma: public');
+            header('Expires: 0');
+            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+            header('Pragma: public');
             header('Content-Length:'.filesize($filename));
       
             if (ob_get_level()) {
@@ -687,6 +687,16 @@ class ControllerExtensionModuleFacebookBusiness extends Controller {
     }
 
     public function eventPreViewCommonHeader(&$route, &$data) {
+        // Set _fbp cookie on every pageview for CAPI
+        if (empty($_COOKIE['_fbp'])) {
+            $_COOKIE['_fbp'] = 'fb.1.' . time() . '.' . random_int(100000000, 999999999);
+            setcookie('_fbp', $_COOKIE['_fbp'], time() + 15552000, '/', '', !empty($_SERVER['HTTPS']), true);
+        }
+        // Persist fbclid from landing page in session
+        if (!empty($this->request->get['fbclid']) && empty($this->session->data['fbclid'])) {
+            $this->session->data['fbclid'] = $this->request->get['fbclid'];
+        }
+
         $this->load->model('extension/module/facebook_business');
 
         $data['facebook_page_id'] = $this->config->get('facebook_page_id');
