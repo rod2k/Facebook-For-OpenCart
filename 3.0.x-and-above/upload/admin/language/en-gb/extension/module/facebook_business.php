@@ -31,9 +31,11 @@ $_['tab_settings']                          = 'Settings';
 // Entry
 $_['entry_cookie_bar']                      = 'Show cookie bar on store website';
 $_['entry_sync_specials']                   = 'Sync product special price as discount to Facebook catalog';
+$_['entry_store_code']                      = 'Store code';
 
 // Help
 $_['help_sync_specials']                    = 'Requires resync of products';
+$_['help_store_code']                       = 'Short code identifying this store (e.g. kids). Sent as a custom property in the pixel and server-side (CAPI) events so multi-store traffic can be told apart in a single ads account/property.';
 
 // Error
 $_['error_permission']                      = 'Warning: You do not have permission to modify Facebook Business Extension!';
