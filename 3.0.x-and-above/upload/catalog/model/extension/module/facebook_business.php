@@ -19,7 +19,7 @@ use FacebookAds\Object\ServerSide\UserData;
 use FacebookAds\Object\ServerSide\Util;
 
 class ModelExtensionModuleFacebookBusiness extends Model {
-    private $pluginVersion = '4.2.1';
+    private $pluginVersion = '4.2.2';
 
     /** 
       * This function is a direct lifting from admin/model/catalog/product.php,

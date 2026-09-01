@@ -1,7 +1,12 @@
 Facebook Business Extension
-Latest version: 4.2.1
+Latest version: 4.2.2
 
 Change log
+4.2.2 - Rolistore
+* Optional Store Code tagging for pixel and CAPI events (multi-store support)
+* Conversions API fix: 4-parameter server event send + PII (email, phone, first name, last name, city, state, zip, country) for fbp/fbc
+* Bumped plugin version to 4.2.2
+
 4.2.1 - 03 Dec 2021
 * Fixed minor bugs and code improvements 
 
