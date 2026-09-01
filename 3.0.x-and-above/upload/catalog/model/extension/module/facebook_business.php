@@ -949,6 +949,11 @@ class ModelExtensionModuleFacebookBusiness extends Model {
             $facebook_pixel_event_params['value'] = (float)$facebook_pixel_event_params['value'];
         }
 
+        $store_code = $this->config->get('module_facebook_business_store_code');
+        if (!empty($store_code)) {
+            $facebook_pixel_event_params['store_code'] = $store_code;
+        }
+
         $pii_to_send = $this->getPii();
         if (isset($facebook_pixel_pii) && $facebook_pixel_pii) {
             $pii_to_send = array_merge($pii_to_send, $facebook_pixel_pii);
@@ -1176,6 +1181,11 @@ class ModelExtensionModuleFacebookBusiness extends Model {
           
                 if (!empty($server_event_params['content_type'])) {
                     $custom_data->setContentType($server_event_params['content_type']);
+                }
+
+                $store_code = $this->config->get('module_facebook_business_store_code');
+                if (!empty($store_code)) {
+                    $custom_data->setCustomProperties(array('store_code' => $store_code));
                 }
             } catch (Exception $ex) {
                 $this->log->write('Facebook Business Extension :: Fail to create server event!');

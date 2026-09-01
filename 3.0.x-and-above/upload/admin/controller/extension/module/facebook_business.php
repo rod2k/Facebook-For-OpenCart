@@ -112,9 +112,15 @@ class ControllerExtensionModuleFacebookBusiness extends Controller {
         }
 
         if (isset($this->request->post['facebook_business_sync_specials_status'])) {
-            $data['module_facebook_business_sync_specials_status'] = $this->request->post['module_facebook_business_sync_specials_status'];
+            $data['module_facebook_business_sync_specials_status'] = $this->request->post['facebook_business_sync_specials_status'];
         } else {
             $data['module_facebook_business_sync_specials_status'] = $this->config->get('module_facebook_business_sync_specials_status');
+        }
+
+        if (isset($this->request->post['module_facebook_business_store_code'])) {
+            $data['module_facebook_business_store_code'] = $this->request->post['module_facebook_business_store_code'];
+        } else {
+            $data['module_facebook_business_store_code'] = $this->config->get('module_facebook_business_store_code');
         }
 
         $data['text_plugin_version'] = sprintf($this->language->get('text_plugin_version'), $plugin_version);
