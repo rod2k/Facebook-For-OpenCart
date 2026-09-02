@@ -949,9 +949,11 @@ class ModelExtensionModuleFacebookBusiness extends Model {
             $facebook_pixel_event_params['value'] = (float)$facebook_pixel_event_params['value'];
         }
 
-        $store_code = $this->config->get('module_facebook_business_store_code');
-        if (!empty($store_code)) {
-            $facebook_pixel_event_params['store_code'] = $store_code;
+        if (!empty($facebook_pixel_event_params) && is_array($facebook_pixel_event_params)) {
+            $store_code = $this->config->get('module_facebook_business_store_code');
+            if (!empty($store_code)) {
+                $facebook_pixel_event_params['store_code'] = $store_code;
+            }
         }
 
         $pii_to_send = $this->getPii();
